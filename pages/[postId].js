@@ -69,7 +69,9 @@ const BlogPost = ({ post }) => (
 );
 
 BlogPost.getInitialProps = async ({ req, query }) => {
-  const res = await fetch(`http://www.mukemmel.blog/api/post/${query.postId}`);
+  const res = await fetch(
+    `https://mukemmel-blog.herokuapp.com/api/post/${query.postId}`
+  );
   const json = await res.json();
   return { post: json.post };
 };
