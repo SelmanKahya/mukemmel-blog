@@ -1,6 +1,12 @@
 export const getPosts = () => {
   return [
     {
+      title: "en guncel baslik",
+      slug: "en-guncel",
+      details: require("./posts/en-guncel.md").default,
+      date: "20 Aralik 2019"
+    },
+    {
       title: "yeni baslik",
       slug: "yeni-baslik",
       details: require("./posts/yeni-baslik.md").default,
