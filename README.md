@@ -1,6 +1,6 @@
-# mukemmel-blog
-
 Dünyanın en güzel blog'u, www.mukemmel.blog!
+
+Bu proje nasıl kodlandı izlemek ister misin? Youtube videosu: https://youtu.be/cHUh0FmPd3A
 
 ## YARIŞMAYA KATIL! (son gün 1 Şubat 2020)
 
@@ -16,6 +16,7 @@ Dünyanın en güzel blog'u, www.mukemmel.blog!
 10. Kazananı 15 Şubat tarihinde https://medium.com/@selmankahya adresinden açıklayacağım ve kişiye ulaşıp 1500TL’yi hesabına transfer edeceğim
 
 ## <a name="kurulum"></a> Kurulum
+
 1. NodeJS yükle: https://nodejs.org/en/download/ (ben 10.15.3 versiyonunu kullanıyorum, sen herhangi stabil güncel versiyon kullanabilirsin)
 2. Bu projeyi kendi github hesabına forkla
 3. Projeyi bilgisayarına clone'la (nasıl yapılacağini bilmiyorsan [tıkla](https://medium.com/@noteCe/github-ile-fork-ve-pull-request-be6077342834)
@@ -29,12 +30,14 @@ Dünyanın en güzel blog'u, www.mukemmel.blog!
 ## <a name="ne-tur"></a> Ne tür özellikler ekleyebilirsin?
 
 ### Kolay
+
 - yazı tipini değiştirebilirsin
 - renkleri değiştirebilirsin
 - bilgisayar, tablet ve mobil cihazlarda farklı ve daha güzel görünmesini sağlayabilirsin
 - ...
 
 ### Orta
+
 - sayfalama ekleyebilirsin
 - kendi domain'inde yayınlayabilirsin
 - yazıları paylaşma linki
@@ -42,6 +45,7 @@ Dünyanın en güzel blog'u, www.mukemmel.blog!
 - ...
 
 ### Zor
+
 - şifre korulmalı yönetim paneli oluşturabilirsin
 - veritabanı entegrasyonu
 - yazılara yorum bırakabilme özelliği

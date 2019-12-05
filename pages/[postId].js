@@ -69,6 +69,7 @@ const BlogPost = ({ post }) => (
 );
 
 BlogPost.getInitialProps = async ({ req, query }) => {
+  // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch(
     `https://mukemmel-blog.herokuapp.com/api/post/${query.postId}`
   );
