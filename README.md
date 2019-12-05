@@ -32,17 +32,17 @@ Dünyanın en güzel blog'u, www.mukemmel.blog!
 - yazı tipini değiştirebilirsin
 - renkleri değiştirebilirsin
 - bilgisayar, tablet ve mobil cihazlarda farklı ve daha güzel görünmesini sağlayabilirsin
-...
+- ...
 
 ### Orta
 - sayfalama ekleyebilirsin
 - kendi domain'inde yayınlayabilirsin
 - yazıları paylaşma linki
 - statik sayfalar ekleyebilirsin (örn. hakkında)
-...
+- ...
 
 ### Zor
 - şifre korulmalı yönetim paneli oluşturabilirsin
 - veritabanı entegrasyonu
 - yazılara yorum bırakabilme özelliği
-...
+- ...
