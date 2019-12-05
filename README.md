@@ -56,3 +56,7 @@ Bu proje nasıl kodlandı izlemek ister misin? Youtube videosu: https://youtu.be
 - veritabanı entegrasyonu
 - yazılara yorum bırakabilme özelliği ekle
 - ...
+
+## Video düzeltmeleri
+
+1. Domain eklerken URL yönlendirme aşamasında 4 seçenek içerisinden ilk opsiyonun `www.mukemmel.blog / mukemmel.blog isteklerini yönlendir` seçilmesi gerektiğini söylüyorum. Aslında olması gereken `Yalnızca mukemmel.blog isteklerini yönlendir` seçilip `www.mukemmel.org` adresine yönlendirme eklemekti.
