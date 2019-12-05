@@ -55,33 +55,26 @@ const Home = ({ posts }) => (
       <a className="p-2 text-muted" href="#">Next.Js</a>
     </nav>
   </div>
-  <div className="jumbotron p-4 p-md-5 text-white rounded backgorund-image-slayder">
-    <div className="col-md-6 px-0">
-      <h1 className="display-4 font-italic">YARIŞMAYA KATIL! (son gün 1 Şubat 2020)</h1>
-      <p className="lead my-3">Dünyanın en güzel blog'u, www.mukemmel.blog! , Bu proje nasıl kodlandı izlemek ister misin?</p>
-      <p className="lead mb-0"><a href="https://youtu.be/cHUh0FmPd3A" className="text-white font-weight-bold">Hemen İzle...</a></p>
-    </div>
+  <hr></hr>
+ 
+  <form className="">
+  <h1 className="h3 mb-3 font-weight-normal text-center">GİRİŞ YAP</h1>
+  <div className="form-group">
+    <label for="exampleInputEmail1">Email Adres</label>
+    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email adresinizi girin"></input>
+    <small id="emailHelp" className="form-text text-muted">E-postalarınızı asla başkasıyla paylaşmayacağız.</small>
   </div>
-  <div className="row mb-2">
-  {posts.map(post => (
-    <div className="col-md-6">
-      <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div className="col p-4 d-flex flex-column position-static">
-          <strong className="d-inline-block mb-2 text-primary">{post.category}</strong>
-          <h3 className="mb-0"> 
-            <a className="blog-title-link">{post.title}</a>
-          </h3>
-          <div className="mb-1 text-muted">{post.date}</div>
-          <p className="card-text mb-auto yazi-sinirla">{post.details}</p>
-          <a href={post.slug} className="stretched-link">Devamını Oku</a>
-        </div>
-        <div className="col-auto d-none d-lg-block">
-          <img className="bd-placeholder-img" width="200" height="250" src={post.images}></img>
-         </div>
-      </div>
-    </div>
-     ))}
+  <div className="form-group">
+    <label for="exampleInputPassword1">Şifre</label>
+    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Şifrenizi girin"></input>
   </div>
+  <div className="form-group form-check">
+    <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
+    <label className="form-check-label" for="exampleCheck1">Beni Hatırla</label>
+  </div>
+  <button type="submit" className="btn btn-primary mb-5">Giriş Yap</button>
+</form>
+    
   <footer className="footer-setting">
   <div className="container">
     <p className="float-right">
@@ -91,6 +84,9 @@ const Home = ({ posts }) => (
     <p>Beni tanımak istermisin ?<a href="https://www.instagram.com/mr.softwareengineer/">instagram</a> hesabımı <a href="https://www.instagram.com/mr.softwareengineer/">ziyaret edebilirsin</a>.</p>
   </div>
 </footer>
+ 
+    
+
   
 
     <style jsx>{`
