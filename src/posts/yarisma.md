@@ -1,4 +1,4 @@
-Okuduğunuz bu blog şu videoda kodlandı:
-https://youtu.be/cHUh0FmPd3A
+Sen de bu blog'un bir kopyasını oluşturabilir ve yeni özellikler ekleyerek 1500TL ödüllü bu yarışmaya katılabilirsin!
 
-1500TL ödüllü yarışmaya katılmak için neyi bekliyorsun!
+Detaylar için videoyu izlemelisin:
+https://youtu.be/cHUh0FmPd3A

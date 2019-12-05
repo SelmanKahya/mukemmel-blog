@@ -12,13 +12,19 @@ const BlogPost = ({ post }) => (
     </Head>
 
     <div className="hero">
-      <h1 className="hero-title">Selman K</h1>
+      <h1 className="hero-title">Selman Kahya</h1>
       <div className="hero-social-links">
+        <Link href="https://medium.com/@selmankahya">
+          <a className="social-link">Medium</a>
+        </Link>
         <Link href="https://www.twitter.com/selmankahyax">
           <a className="social-link">Twitter</a>
         </Link>
         <Link href="https://www.linkedin.com/in/selmankahya">
           <a className="social-link">LinkedIn</a>
+        </Link>
+        <Link href="https://www.instagram.com/selmankahyax/?hl=en">
+          <a className="social-link">Instagram</a>
         </Link>
       </div>
     </div>
@@ -46,7 +52,7 @@ const BlogPost = ({ post }) => (
         margin: 96px 0;
       }
 
-      .social-link:first-child {
+      .social-link {
         margin-right: 8px;
       }
 
@@ -70,9 +76,7 @@ const BlogPost = ({ post }) => (
 
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch(
-    `https://mukemmel-blog.herokuapp.com/api/post/${query.postId}`
-  );
+  const res = await fetch(`http://localhost:3000/api/post/${query.postId}`);
   const json = await res.json();
   return { post: json.post };
 };

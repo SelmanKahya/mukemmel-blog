@@ -1,6 +1,6 @@
 Bu yazıda markdown'un farklı özellikleri kullandıldı.
 
-## Örnek başlık
+#### Örnek başlık
 
 **Bu kalın bir yazı**
 
@@ -8,13 +8,13 @@ _Bu italik bir yazı_
 
 ~~Üstü çizili~~
 
-## Alıntı mı yapmak istiyorsun
+#### Alıntı mı yapmak istiyorsun
 
 > Alıntılar iç içe girebilir
 >
 > > ...bunun gibi
 
-## Listeler
+#### Listeler
 
 Sırasız
 
@@ -30,7 +30,7 @@ Sıralı
 2. ben
 3. o
 
-## Kod ekleyelim
+#### Kod ekleyelim
 
 Girinti ekleyebilirsin:
 
