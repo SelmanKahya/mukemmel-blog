@@ -30,7 +30,7 @@ const Home = ({ posts }) => (
     </div>
 
     {posts.map(post => (
-      <div className="blog">
+      <div key={post.id} className="blog">
         <h2 className="blog-title">
           <Link href={post.slug}>
             <a className="blog-title-link">{post.title}</a>
