@@ -56,7 +56,7 @@
 }
  
 .icon-share:before { content: '\e801'; } /* '' */
-.icon-instagram:before { content: '\f16d'; } /* '' */
+.icon-instagram-filled:before { content: '\f31f'; } /* '' */
 .icon-twitter-squared:before { content: '\f304'; } /* '' */
 .icon-facebook-squared:before { content: '\f308'; } /* '' */
 .icon-linkedin-squared:before { content: '\f30c'; } /* '' */
