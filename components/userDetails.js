@@ -1,14 +1,27 @@
 import Link from "next/link";
 
+
+const _renderChildren = (children = null) => {
+  console.log(children)
+  if (children !== null) {
+    return (
+      <a>
+        { children }
+      </a>
+    )
+  }
+}
 const UserDetails = props => {
-  const { name, image, className } = props;
+  const { name, image, className, children } = props;
   return (
-    <div className={"flex flex-row " + className}>
-      <div className="">
+    <div className={"flex flex-row justify-between " + className}>
+      <div className="flex flex-row">
         <img src={image} className="rounded-full w-12" />
+        <a className="m-3">{name}</a>
+
       </div>
 
-        <a className="m-3">{name}</a>
+      {_renderChildren(children)}
     </div>
   );
 };

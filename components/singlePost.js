@@ -32,7 +32,6 @@ const SinglePost = props => {
 
           <UserDetails name={userName} image={userImage} />
 
-          <div className="blog-date">{date}</div>
         </div>
       </Link>
     );
@@ -51,9 +50,13 @@ const SinglePost = props => {
           <ReactMarkdown source={details} />
         </div>
         <hr />
-        <UserDetails name={userName} image={userImage} className="mt-5" />
-
-        <div className="blog-date">{date}</div>
+        <UserDetails name={userName} image={userImage} className="mt-5">
+          <div className="blog-date">{date}</div>
+          <div>
+            <span className="icon-twitter-squared" />
+            <a href={`https://twitter.com/intent/tweet?text=${title}`} target="_blank">Tweet this post!</a>
+          </div>
+        </UserDetails>
       </div>
     );
   }
