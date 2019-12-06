@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 const content = require('../src/static/about.md').default
 
 const About = (props) => (
-  <Page>
+  <Page minimal={true}>
     <div className="sm:flex flex-row justify-center">
         <SinglePost
           title={"Hakkinda"}
