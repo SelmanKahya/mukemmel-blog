@@ -1,1 +1,1 @@
-This project forked from (link)[https://github.com/SelmanKahya/mukemmel-blog] for competition.
+This project forked from https://github.com/SelmanKahya/mukemmel-blog for competition.
