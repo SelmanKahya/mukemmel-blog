@@ -1,18 +1,17 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
-import Head from "next/head";
-import Link from "next/link";
-import ReactMarkdown from "react-markdown";
 import Page from "../layouts/main";
 import SinglePost from "../components/singlePost";
 
 const BlogPost = ({ post }) => (
   <Page minimal={true}>
-    <div class="container-xl">
+    <div class="container mx-auto w-8/12">
       <SinglePost
         detailsPage={true}
         title={post.title}
         details={post.details}
+        userName={post.user.name}
+        userImage={post.user.profile_picture}
         date={post.date}
       />
     </div>

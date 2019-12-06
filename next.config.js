@@ -9,6 +9,7 @@ module.exports = withSass({
       test: /\.md$/,
       use: "raw-loader"
     });
+    
 
     return config;
   }

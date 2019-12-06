@@ -1,25 +1,38 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
 body {
   font-family: "Nunito Sans", sans-serif;
   font-display: swap;
+  overflow-x: hidden;
+}
+
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgba(0, 0, 0, 0.7);
+}
+p {
+  @apply py-5;
 }
 // FIXME: buralara baklava dagit
 
 img {
   max-width: 100%;
-}
-a {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.8);
-}
-.container {
-  max-width: 650px;
-  width: 100%;
   margin: 0 auto;
+  width: 640px;
 }
 
-.container-xl {
-  @extend .container;
-  max-width: 1024px !important;
+a {
+  text-decoration: none;
 }
 
 .hero {
@@ -43,6 +56,7 @@ a {
 }
 
 .blog {
+  background: #fcfcfc;
   .blog-title {
     font-size: 40px;
     font-weight: 400;

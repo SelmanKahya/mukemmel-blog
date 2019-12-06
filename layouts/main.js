@@ -2,7 +2,7 @@ import Header from "../components/header";
 import Head from "next/head";
 import "../public/app.scss";
 
-const Page = ({ minimal, children }) => (
+const Page = ({ minimal, children, className }) => (
   <div>
     <Head>
       <title>Home</title>
@@ -19,7 +19,7 @@ const Page = ({ minimal, children }) => (
       />
     </Head>
     <Header minimal={minimal} />
-    {children}
+    <div className={className}>{children}</div>
   </div>
 );
 export default Page;

@@ -27,7 +27,9 @@ const Header = ({ minimal }) => {
   return (
     <div className="hero-minimal">
       <h1 className="hero-title">
-        <Link href="/">Selman Kahya</Link>
+        <Link href="/">
+          <a>Selman Kahya</a>
+        </Link>
       </h1>
       <div className="hero-social-links">
         <Link href="https://medium.com/@selmankahya">

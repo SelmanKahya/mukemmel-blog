@@ -5,13 +5,16 @@ import Page from "../layouts/main";
 
 const Home = ({ posts }) => (
   <Page>
-    <div className="container">
+    <div className="flex flex-row justify-center">
       {posts.map(post => (
         <SinglePost
           title={post.title}
           slug={post.slug}
           details={post.details.substring(0, 250)}
           date={post.date}
+          image={post.image}
+          userName={post.user.name}
+          userImage={post.user.profile_picture}
           key={post.id}
         />
       ))}
