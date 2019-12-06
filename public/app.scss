@@ -49,27 +49,8 @@ a {
   font-size: 48px;
 }
 
-.blog-date {
-  text-align: right;
-  color: #cccccc;
-  margin: 12px 0 48px 0;
-}
-
-.blog {
-  background: #fcfcfc;
-  .blog-title {
-    font-size: 40px;
-    font-weight: 400;
-  }
-}
-
 .hero-minimal {
   @extend .hero;
   height: auto;
   min-height: 13vh !important;
-}
-
-.blog-single {
-  @extend .blog;
-  text-align: center;
 }

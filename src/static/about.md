@@ -1,0 +1,1 @@
+This blog is perfect, why? becauze i made it lul
