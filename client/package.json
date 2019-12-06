@@ -8,12 +8,10 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
-    "isomorphic-unfetch": "^3.0.0",
     "next": "9.1.4",
     "raw-loader": "^4.0.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-markdown": "^4.2.2",
     "semantic-ui-react": "^0.88.1"
   }
 }
