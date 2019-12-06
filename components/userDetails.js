@@ -8,9 +8,7 @@ const UserDetails = props => {
         <img src={image} className="rounded-full w-12" />
       </div>
 
-      <Link>
         <a className="m-3">{name}</a>
-      </Link>
     </div>
   );
 };

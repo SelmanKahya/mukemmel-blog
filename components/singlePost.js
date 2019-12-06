@@ -14,11 +14,10 @@ const SinglePost = props => {
     userImage,
     image
   } = props;
-
   if (!detailsPage) {
     return (
       <Link href={slug}>
-        <div className="w-1/4 m-5 bg-gray-100 p-5 rounded-lg cursor-pointer">
+        <div className="sm:w-1/4 m-5 bg-gray-100 p-5 rounded-lg cursor-pointer">
           <div id="blogImage">
             <img src={image} />
           </div>

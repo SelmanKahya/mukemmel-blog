@@ -5,7 +5,7 @@ import Page from "../layouts/main";
 import { apiUrl } from '../config'
 const Home = ({ posts }) => (
   <Page>
-    <div className="flex flex-row justify-center">
+    <div className="sm:flex flex-row justify-center">
       {posts.map(post => (
         <SinglePost
           title={post.title}

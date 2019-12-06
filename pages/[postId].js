@@ -11,7 +11,7 @@ const BlogPost = ({ post, statusCode }) => {
   }
   return (
     <Page minimal={true}>
-      <div class="container mx-auto w-8/12">
+      <div className="container mx-auto w-8/12">
         <SinglePost
           detailsPage={true}
           title={post.title}
