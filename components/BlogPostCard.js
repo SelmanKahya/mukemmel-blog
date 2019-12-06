@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
 const BlogPostCard = ({ post }) => (
@@ -20,7 +22,9 @@ const BlogPostCard = ({ post }) => (
         <ReactMarkdown source={post.details} />
       </div>
       <div className="text-right mt-2">
-        <span className=" px-4 py-1 font-semibold rounded-full bg-gray-600 text-white">{post.date}</span>
+        <span className="px-4 py-1 font-semibold rounded-full bg-gray-600 text-white">
+          <FontAwesomeIcon icon={faClock} /> {post.date}
+        </span>
       </div>
     </div>
   </div>

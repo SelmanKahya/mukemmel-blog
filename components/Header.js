@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMedium, faTwitter, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Header = () => (
   <div className="px-2 py-24 bg-gray-900 shadow-xl">
@@ -22,22 +24,42 @@ const Header = () => (
       <div className="mt-5 flex flex-wrap items-center justify-center">
         <div className="p-2">
           <Link href="https://medium.com/@selmankahya">
-            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">Medium</a>
+            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">
+              <span className="mr-1 text-lg align-middle">
+                <FontAwesomeIcon icon={faMedium} />
+              </span>
+              Medium
+            </a>
           </Link>
         </div>
         <div className="p-2">
           <Link href="https://www.twitter.com/selmankahyax">
-            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">Twitter</a>
+            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">
+              <span className="mr-1 text-lg align-middle">
+                <FontAwesomeIcon icon={faTwitter} />
+              </span>
+              Twitter
+            </a>
           </Link>
         </div>
         <div className="p-2">
           <Link href="https://www.linkedin.com/in/selmankahya">
-            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">LinkedIn</a>
+            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">
+              <span className="mr-1 text-lg align-middle">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </span>
+              LinkedIn
+            </a>
           </Link>
         </div>
         <div className="p-2">
           <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">Instagram</a>
+            <a className="px-4 py-1 text-sm font-semibold bg-green-500 rounded-full hover:bg-green-600">
+              <span className="mr-1 text-lg align-middle">
+                <FontAwesomeIcon icon={faInstagram} />
+              </span>
+              Instagram
+            </a>
           </Link>
         </div>
       </div>

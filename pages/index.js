@@ -4,6 +4,7 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import BlogPostCard from "../components/BlogPostCard";
 import "../styles/tailwind.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 const Home = ({ posts }) => (
   <Layout>

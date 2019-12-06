@@ -830,6 +830,46 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@fortawesome/fontawesome-common-types@^0.2.25":
+  version "0.2.25"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.25.tgz#6df015905081f2762e5cfddeb7a20d2e9b16c786"
+  integrity sha512-3RuZPDuuPELd7RXtUqTCfed14fcny9UiPOkdr2i+cYxBoTOfQgxcDoq77fHiiHcgWuo1LoBUpvGxFF1H/y7s3Q==
+
+"@fortawesome/fontawesome-svg-core@^1.2.25":
+  version "1.2.25"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.25.tgz#24b03391d14f0c6171e8cad7057c687b74049790"
+  integrity sha512-MotKnn53JKqbkLQiwcZSBJVYtTgIKFbh7B8+kd05TSnfKYPFmjKKI59o2fpz5t0Hzl35vVGU6+N4twoOpZUrqA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/free-brands-svg-icons@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.11.2.tgz#39d4296d03bf5719c579dea4bdcdd356ed2de0b4"
+  integrity sha512-wKK5znpHiZ2S0VgOvbeAnYuzkk3H86rxWajD9PVpfBj3s/kySEWTFKh/uLPyxiTOx8Tsd0OGN4En/s9XudVHLQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/free-regular-svg-icons@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.11.2.tgz#6edfc5c230094be3b9070fef048c01aa321a8428"
+  integrity sha512-k0vbThRv9AvnXYBWi1gn1rFW4X7co/aFkbm0ZNmAR5PoWb9vY9EDDDobg8Ay4ISaXtCPypvJ0W1FWkSpLQwZ6w==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/free-solid-svg-icons@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.11.2.tgz#2f2f1459743a27902b76655a0d0bc5ec4d945631"
+  integrity sha512-zBue4i0PAZJUXOmLBBvM7L0O7wmsDC8dFv9IhpW5QL4kT9xhhVUsYg/LX1+5KaukWq4/cbDcKT+RT1aRe543sg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/react-fontawesome@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.8.tgz#cb6d4dd3aeec45b6ff2d48c812317a6627618511"
+  integrity sha512-I5h9YQg/ePA3Br9ISS18fcwOYmzQYDSM1ftH03/8nHkiqIVHtUyQBw482+60dnzvlr82gHt3mGm+nDUp159FCw==
+  dependencies:
+    prop-types "^15.5.10"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -4931,7 +4971,7 @@ prop-types-exact@1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@15.7.2, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
