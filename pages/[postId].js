@@ -14,6 +14,7 @@ const BlogPost = ({ post, statusCode }) => {
       <div className="container mx-auto w-8/12">
         <SinglePost
           detailsPage={true}
+          slug=""
           title={post.title}
           details={post.details}
           userName={post.user.name}
