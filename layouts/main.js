@@ -11,7 +11,7 @@ const Page = ({ minimal, children }) => (
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
         integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI="
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
       <link
         href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap"
