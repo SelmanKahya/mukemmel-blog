@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Menu, Button } from "semantic-ui-react";
+import * as React from "react";
+import { useState } from "react";
+import { Menu } from "semantic-ui-react";
 
-const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("");
+const Navbar: React.FC = () => {
+  const [activeItem, setActiveItem] = useState<string>("");
 
   return (
     <Menu size="large">

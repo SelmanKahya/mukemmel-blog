@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 import Head from "next/head";
 import Navbar from "../Components/Navbar/Navbar";
 
-const Home = () => (
+const Home: React.FC = () => (
   <div>
     <Head>
       <title>Berkay'ın Bloğu</title>
