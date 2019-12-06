@@ -3,6 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Page from "../layouts/main";
 import SinglePost from "../components/singlePost";
 import Error from "next/error";
+import { apiUrl } from "../config";
 
 const BlogPost = ({ post, statusCode }) => {
   if (statusCode === 404) {
@@ -27,7 +28,7 @@ const BlogPost = ({ post, statusCode }) => {
 BlogPost.getInitialProps = async ({ res, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const response = await fetch(
-    `http://localhost:3000/api/post/${query.postId}`
+    `${apiUrl}/api/post/${query.postId}`
   );
   const json = await response.json();
   let data = {

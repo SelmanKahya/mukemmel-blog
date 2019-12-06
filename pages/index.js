@@ -2,7 +2,7 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import SinglePost from "../components/singlePost";
 import Page from "../layouts/main";
-
+import { apiUrl } from '../config'
 const Home = ({ posts }) => (
   <Page>
     <div className="flex flex-row justify-center">
@@ -24,7 +24,7 @@ const Home = ({ posts }) => (
 
 Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch(`${apiUrl}/api/posts`);
   const json = await res.json();
   return { posts: json.posts };
 };
