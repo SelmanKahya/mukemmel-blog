@@ -7,7 +7,7 @@ import ReactMarkdown from "react-markdown";
 const BlogPost = ({ post }) => (
   <div className="container">
     <Head>
-      <title>Home</title>
+      <title>Mukemmel Blog</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
@@ -76,7 +76,7 @@ const BlogPost = ({ post }) => (
 
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch(`http://localhost:3000/api/post/${query.postId}`);
+  const res = await fetch(`https://mukemmel.herokuapp.com/api/post/${query.postId}`);
   const json = await res.json();
   return { post: json.post };
 };

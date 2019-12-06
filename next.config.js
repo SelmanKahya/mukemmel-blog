@@ -7,6 +7,11 @@ module.exports = withCSS({
       use: "raw-loader"
     });
 
+    config.module.rules.push({
+      test: /\.(png|svg|jpg|gif)$/,
+      use: ["file-loader"]
+    });
+
     return config;
   }
 });

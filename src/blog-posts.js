@@ -2,6 +2,8 @@ export const getPosts = () => {
   return [
     {
       id: "1",
+      cover:
+        "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
       title: "1500TL ödül! Sen de yarışmaya katıl!",
       slug: "yarisma",
       details: require("./posts/yarisma.md").default,

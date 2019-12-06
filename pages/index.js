@@ -8,7 +8,7 @@ import "../styles/tailwind.css";
 const Home = ({ posts }) => (
   <Layout>
     <Head>
-      <title>Home</title>
+      <title>Mukemmel Blog | Home</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
@@ -22,7 +22,7 @@ const Home = ({ posts }) => (
 
 Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch("https://mukemmel.herokuapp.com/api/posts");
   const json = await res.json();
   return { posts: json.posts };
 };
