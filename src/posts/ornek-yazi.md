@@ -1,48 +1,13 @@
-Bu yazıda markdown'un farklı özellikleri kullandıldı.
+Many people choose Medium lately as their go-to platform to blog. Kind of like Blogger a while back, it just seems what everybody has been doing (unless you are really nit-picky and care enough to host your own thing).
 
-#### Örnek başlık
+And kind of like Blogger, Medium is a terrible thing for publishing. If you think about publishing an article, starting a blog or even just sharing a short rant on Medium, please consider what you’ll be putting your readers through.
 
-**Bu kalın bir yazı**
+Every Medium article will greet each person who opens your link with a huge full-page banner every time:
 
-_Bu italik bir yazı_
+![](https://miro.medium.com/max/2560/1*6Mu_U4dUXP5uzebamoUYaw.png)
 
-~~Üstü çizili~~
+If they open your link on a phone, Medium will really, really, really insist on installing an app. I guess reading text from a webpage is too old-school:
 
-#### Alıntı mı yapmak istiyorsun
+![](https://miro.medium.com/max/750/1*YydCukQpUYFjrbGw1sW0BQ@2x.png)
 
-> Alıntılar iç içe girebilir
->
-> > ...bunun gibi
-
-#### Listeler
-
-Sırasız
-
-- bu ilk madde
-- ikinci madde
-  - bu bir alt madde
-    - alt maddenin alt maddesi neden olmasın?
-- oldukça basit!
-
-Sıralı
-
-1. sen
-2. ben
-3. o
-
-#### Kod ekleyelim
-
-Girinti ekleyebilirsin:
-
-    // bu bir yorum satırı
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-Ya da bu üç tik kullanabilirsin:
-
-```
-Sample text here...
-```
-
-Daha fazlası için: https://markdown-it.github.io/
+Medium is advertising itself as a reader-oriented experience. At the same time, most of Medium articles look and read worse than just plaintext HTML. If you get through banners and set down to read anything, you will be surrounded by HUGE sticky header, sticky footer and sticky social media controls:

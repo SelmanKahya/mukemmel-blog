@@ -1,0 +1,61 @@
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-display: swap;
+}
+// FIXME: buralara baklava dagit
+
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+.container {
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-xl {
+  @extend .container;
+  max-width: 1024px !important;
+}
+
+.hero {
+  text-align: center;
+  height: 18vh;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 12px 0px;
+}
+
+.social-link {
+  margin-right: 8px;
+}
+
+.hero-title {
+  font-size: 48px;
+}
+
+.blog-date {
+  text-align: right;
+  color: #cccccc;
+  margin: 12px 0 48px 0;
+}
+
+.blog {
+  .blog-title {
+    font-size: 40px;
+    font-weight: 400;
+  }
+}
+
+.hero-minimal {
+  @extend .hero;
+  height: auto;
+  min-height: 13vh !important;
+}
+
+.blog-single {
+  @extend .blog;
+  text-align: center;
+}
