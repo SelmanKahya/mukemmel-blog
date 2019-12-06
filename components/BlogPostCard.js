@@ -11,7 +11,7 @@ const BlogPostCard = ({ post }) => (
       </Link>
     )}
     <div className="px-4 py-2">
-      <h2 className="text-gray-900 font-semibold text-lg hover:text-gray-700">
+      <h2 className="font-semibold text-lg hover:text-gray-700">
         <Link href={post.slug}>
           <a>{post.title}</a>
         </Link>
