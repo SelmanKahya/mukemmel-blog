@@ -19,4 +19,7 @@ export class Blog extends BaseEntity {
 
   @Column({ type: "int", default: 0 })
   likes: number;
+
+  @Column({ default: new Date(Date.now()) })
+  createdAt: Date;
 }
