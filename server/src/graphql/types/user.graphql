@@ -21,6 +21,7 @@ type MutationReturnType {
 
 type Mutation {
   register(data: registerInput!): MutationReturnType!
+  login(data: loginInput!): MutationReturnType!
 }
 
 input registerInput {
@@ -28,5 +29,10 @@ input registerInput {
   surname: String!
   username: String!
   email: String!
+  password: String!
+}
+
+input loginInput {
+  username: String!
   password: String!
 }

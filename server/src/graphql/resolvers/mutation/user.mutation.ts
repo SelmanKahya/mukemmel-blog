@@ -46,7 +46,7 @@ export const userMutation: MutationType = {
 
     const hashedPassword: string = bcrypt.hashSync(password, 10);
 
-    const newUser: User = User.create({
+    const newUser: User = User.create<User>({
       name,
       surname,
       username,
@@ -59,6 +59,38 @@ export const userMutation: MutationType = {
 
     return {
       user: newUser,
+      errorMessage: "No error."
+    };
+  },
+  login: async (_, { data }): Promise<MutationReturnType> => {
+    const {
+      username,
+      password
+    }: {
+      username: string;
+      password: string;
+    } = data;
+
+    const user: User = await User.findOne<User>({ username });
+
+    if (!user) {
+      return {
+        user: null,
+        errorMessage: "This user does not exists."
+      };
+    }
+
+    const validPassword: boolean = bcrypt.compareSync(password, user.password);
+
+    if (validPassword === false) {
+      return {
+        user: null,
+        errorMessage: "Your password is not correct."
+      };
+    }
+
+    return {
+      user,
       errorMessage: "No error."
     };
   }
