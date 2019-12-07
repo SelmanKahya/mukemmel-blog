@@ -1,12 +1,13 @@
 import { User } from "../../../entity/User";
-import { MutationType } from "../../../@types/ResolverTypes";
 import * as bcrypt from "bcrypt";
+import { MutationType } from "../../../@types/ResolverTypes";
+import { MutationReturnType } from "../../../@types/ReturnTypes";
 
 export const userMutation: MutationType = {
   register: async (
     _,
     { data: { name, surname, username, email, password } }
-  ) => {
+  ): Promise<MutationReturnType> => {
     const authBoth = await User.findOne({ username, email });
     const authUsername = await User.findOne({ username });
     const authEmail = await User.findOne({ email });
