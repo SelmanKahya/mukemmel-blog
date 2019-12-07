@@ -1,5 +1,6 @@
 import { User } from "../../../entity/User";
 import { MutationType } from "../../../@types/ResolverTypes";
+import * as bcrypt from "bcrypt";
 
 export const userMutation: MutationType = {
   register: async (
@@ -31,12 +32,14 @@ export const userMutation: MutationType = {
       };
     }
 
+    const hashedPassword: string = bcrypt.hashSync(password, 10);
+
     const newUser = User.create({
       name,
       surname,
       username,
       email,
-      password,
+      password: hashedPassword,
       createdAt: new Date(Date.now())
     });
 
