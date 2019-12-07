@@ -599,6 +599,36 @@ video {
   height: auto;
 }
 
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 0.875rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
 .container {
   width: 100%;
 }

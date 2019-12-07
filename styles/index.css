@@ -1,3 +1,26 @@
 @tailwind base;
+h1 {
+  @apply text-2xl;
+}
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
+}
+h5 {
+  @apply text-sm;
+}
+h6 {
+  @apply text-xs;
+}
+ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
 @tailwind components;
 @tailwind utilities;
