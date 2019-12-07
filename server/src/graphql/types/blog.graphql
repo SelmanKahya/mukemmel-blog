@@ -2,7 +2,8 @@ scalar Date
 scalar Int
 
 type Query {
-  hello: String!
+  blog(id: ID!): BlogResolverReturnType!
+  blogs: [Blog!]
 }
 
 type Blog {
