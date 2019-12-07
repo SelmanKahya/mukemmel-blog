@@ -1,7 +1,8 @@
 scalar Date
 
 type Query {
-  hello(name: String): String!
+  user(id: ID!): ResolverReturnType!
+  users: [User!]
 }
 
 type User {
@@ -14,14 +15,14 @@ type User {
   createdAt: Date!
 }
 
-type MutationReturnType {
+type ResolverReturnType {
   user: User
   errorMessage: String!
 }
 
 type Mutation {
-  register(data: registerInput!): MutationReturnType!
-  login(data: loginInput!): MutationReturnType!
+  register(data: registerInput!): ResolverReturnType!
+  login(data: loginInput!): ResolverReturnType!
 }
 
 input registerInput {

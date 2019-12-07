@@ -1,10 +1,10 @@
 import { User } from "../../../entity/User";
 import * as bcrypt from "bcrypt";
 import { MutationType } from "../../../@types/ResolverTypes";
-import { MutationReturnType } from "../../../@types/ReturnTypes";
+import { ResolverReturnType } from "../../../@types/ReturnTypes";
 
 export const userMutation: MutationType = {
-  register: async (_, { data }): Promise<MutationReturnType> => {
+  register: async (_, { data }): Promise<ResolverReturnType> => {
     const {
       name,
       surname,
@@ -62,7 +62,7 @@ export const userMutation: MutationType = {
       errorMessage: "No error."
     };
   },
-  login: async (_, { data }): Promise<MutationReturnType> => {
+  login: async (_, { data }): Promise<ResolverReturnType> => {
     const {
       username,
       password

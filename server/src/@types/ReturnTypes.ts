@@ -1,6 +1,6 @@
 import { User } from "./DatabaseModelTypes";
 
-export interface MutationReturnType {
+export interface ResolverReturnType {
   user: User;
   errorMessage: string;
 }
