@@ -7,7 +7,7 @@ import { GraphQLSchema } from "graphql";
 import { importSchema } from "graphql-import";
 import { ApolloServer } from "apollo-server-express";
 // graphql resolvers
-import resolvers from "./graphql/resolvers";
+import resolvers from "./graphql/resolvers/index";
 
 // dotenv setup
 dotenv.config();
