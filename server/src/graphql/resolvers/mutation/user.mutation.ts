@@ -4,13 +4,24 @@ import { MutationType } from "../../../@types/ResolverTypes";
 import { MutationReturnType } from "../../../@types/ReturnTypes";
 
 export const userMutation: MutationType = {
-  register: async (
-    _,
-    { data: { name, surname, username, email, password } }
-  ): Promise<MutationReturnType> => {
-    const authBoth = await User.findOne({ username, email });
-    const authUsername = await User.findOne({ username });
-    const authEmail = await User.findOne({ email });
+  register: async (_, { data }): Promise<MutationReturnType> => {
+    const {
+      name,
+      surname,
+      username,
+      email,
+      password
+    }: {
+      name: string;
+      surname: string;
+      username: string;
+      email: string;
+      password: string;
+    } = data;
+
+    const authBoth: User = await User.findOne<User>({ username, email });
+    const authUsername: User = await User.findOne<User>({ username });
+    const authEmail: User = await User.findOne<User>({ email });
 
     if (authBoth) {
       return {
@@ -35,7 +46,7 @@ export const userMutation: MutationType = {
 
     const hashedPassword: string = bcrypt.hashSync(password, 10);
 
-    const newUser = User.create({
+    const newUser: User = User.create({
       name,
       surname,
       username,
