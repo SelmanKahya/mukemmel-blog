@@ -1,0 +1,33 @@
+scalar Date
+scalar Int
+
+type Query {
+  hello: String!
+}
+
+type Blog {
+  id: ID!
+  owner_id: ID!
+  title: String!
+  content: String!
+  tags: [String]!
+  likes: Int!
+  createdAt: Date!
+}
+
+type BlogResolverReturnType {
+  blog: Blog
+  errorMessage: String!
+}
+
+type Mutation {
+  createBlog(data: createBlogInput!): BlogResolverReturnType!
+}
+
+input createBlogInput {
+  owner_id: ID!
+  title: String!
+  content: String!
+  tags: [String]!
+  likes: Int!
+}

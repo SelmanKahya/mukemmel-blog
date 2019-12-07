@@ -1,6 +1,6 @@
 import { User } from "./DatabaseModelTypes";
 
-export interface ResolverReturnType {
+export interface UserResolverReturnType {
   user: User;
   errorMessage: string;
 }

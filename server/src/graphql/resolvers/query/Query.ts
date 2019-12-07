@@ -1,10 +1,11 @@
 import { QueryType } from "../../../@types/ResolverTypes";
-import { ResolverReturnType } from "../../../@types/ReturnTypes";
+import { UserResolverReturnType } from "../../../@types/ReturnTypes";
 import { User } from "../../../entity/User";
 
 export const Query: QueryType = {
-  user: async (_, { id }): Promise<ResolverReturnType> => {
-    const user = await User.findOne(id);
+  hello: () => "Hello",
+  user: async (_, { id }): Promise<UserResolverReturnType> => {
+    const user: User = await User.findOne<User>(id);
 
     if (!user) {
       return {
@@ -18,5 +19,5 @@ export const Query: QueryType = {
       errorMessage: "No error."
     };
   },
-  users: async (): Promise<User[]> => await User.find({})
+  users: async (): Promise<User[]> => await User.find<User>({})
 };
