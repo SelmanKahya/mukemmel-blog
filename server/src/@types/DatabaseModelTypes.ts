@@ -10,3 +10,13 @@ export type User = {
   password?: string;
   createdAt: Date;
 };
+
+export type Blog = {
+  id?: ObjectID;
+  owner_id: ObjectID;
+  title: string;
+  content: string;
+  tags: [string];
+  likes: string;
+  createdAt: Date;
+};
