@@ -28,6 +28,6 @@ input createBlogInput {
   owner_id: ID!
   title: String!
   content: String!
-  tags: [String]!
+  tags: [String!]!
   likes: Int!
 }

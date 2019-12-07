@@ -1,5 +1,5 @@
 const ObjectID = require("mongodb").ObjectID;
-type ObjectID = typeof import("mongodb").ObjectID;
+export type ObjectID = typeof import("mongodb").ObjectID;
 
 export type User = {
   id?: ObjectID;
@@ -17,6 +17,6 @@ export type Blog = {
   title: string;
   content: string;
   tags: [string];
-  likes: string;
+  likes: number;
   createdAt: Date;
 };
