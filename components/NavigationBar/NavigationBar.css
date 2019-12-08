@@ -3,10 +3,15 @@
   margin: 96px 0;
 }
 
-.social-link {
-  margin-right: 8px;
-}
-
 .hero-title {
   font-size: 48px;
+  color: #121212;
+}
+
+.hero-title:hover {
+  cursor: pointer;
+}
+
+.social-link {
+  margin-right: 8px;
 }

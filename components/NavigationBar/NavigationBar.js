@@ -3,7 +3,7 @@ import './NavigationBar.css';
 
 const NavigationBar = () => (
   <div className="hero">
-    <h1 className="hero-title">Selman Kahya</h1>
+    <Link href="/"><h1 className="hero-title">Selman Kahya</h1></Link>
     <div className="hero-social-links">
       <Link href="https://medium.com/@selmankahya">
         <a className="social-link">Medium</a>
