@@ -1,8 +1,9 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
-import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+
+import NavigationBar from '../components/NavigationBar';
 
 const BlogPost = ({ post }) => (
   <div className="container">
@@ -11,29 +12,11 @@ const BlogPost = ({ post }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <div className="hero">
-      <h1 className="hero-title">Selman Kahya</h1>
-      <div className="hero-social-links">
-        <Link href="https://medium.com/@selmankahya">
-          <a className="social-link">Medium</a>
-        </Link>
-        <Link href="https://www.twitter.com/selmankahyax">
-          <a className="social-link">Twitter</a>
-        </Link>
-        <Link href="https://www.linkedin.com/in/selmankahya">
-          <a className="social-link">LinkedIn</a>
-        </Link>
-        <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-          <a className="social-link">Instagram</a>
-        </Link>
-      </div>
-    </div>
+    <NavigationBar />
 
     <div className="blog">
       <h2 className="blog-title">
-        <Link href="/test">
-          <a className="blog-title-link">{post.title}</a>
-        </Link>
+        {post.title}
       </h2>
       <div className="blog-text">
         <ReactMarkdown source={post.details} />
@@ -45,19 +28,6 @@ const BlogPost = ({ post }) => (
         max-width: 650px;
         width: 100%;
         margin: 0 auto;
-      }
-
-      .hero {
-        text-align: center;
-        margin: 96px 0;
-      }
-
-      .social-link {
-        margin-right: 8px;
-      }
-
-      .hero-title {
-        font-size: 48px;
       }
 
       .blog-date {
