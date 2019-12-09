@@ -39,7 +39,7 @@ const Home = ({ posts }) => (
         <div className="blog-text">
           <ReactMarkdown source={post.details} />
         </div>
-        <div className="blog-date">{post.date}</div>
+        <div className="blog-date">{post.date}<hr></hr></div>
       </div>
     ))}
 
