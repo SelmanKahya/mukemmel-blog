@@ -4,7 +4,7 @@ import Page from "../layouts/main";
 import { useQuery } from "@apollo/react-hooks";
 import getPage from '../graphql/queries/getPage'
 
-const About = (props) => {
+const About = () => {
   const { data, loading } = useQuery(getPage('about'))
   if (!loading) {
     const content = data.staticPages.content

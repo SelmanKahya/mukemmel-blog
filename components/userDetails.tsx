@@ -1,6 +1,3 @@
-import Link from "next/link";
-
-
 const _renderChildren = (children = null) => {
   if (children !== null) {
     return (
