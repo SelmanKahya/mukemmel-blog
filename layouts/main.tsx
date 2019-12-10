@@ -1,16 +1,20 @@
 import Header from "../components/header";
 import Head from "next/head";
 import { initGA, logPageView } from '../utils/analytics'
-import React, { useEffect } from "react";
+import React, { useEffect, ReactElement } from "react";
 import "../public/app.scss";
 
-
-
-const Page = ({ minimal, children, className }) => {
+interface PageProps {
+  minimal?: boolean
+  children: ReactElement
+  className?: string
+}
+const Page = ({ minimal, children, className }: PageProps) => {
   useEffect(() => {
-    if (!window.GA_INITIALIZED) {
+    if(!document.cookie.includes('_gat')) {
       initGA()
-      window.GA_INITIALIZED = true
+    } else {
+      return
     }
     logPageView()
   }, []);

@@ -2,7 +2,6 @@ import Link from "next/link";
 
 
 const _renderChildren = (children = null) => {
-  console.log(children)
   if (children !== null) {
     return (
       <a>

@@ -1,9 +1,9 @@
 import ReactGA from 'react-ga'
-import { analyticsSiteKey } from '../config'
+import config from '../config'
 
 export const initGA = () => {
   console.log('GA init')
-  ReactGA.initialize(analyticsSiteKey)
+  ReactGA.initialize(config.analyticsSiteKey)
 }
 export const logPageView = () => {
   console.log(`Logging pageview for ${window.location.pathname}`)

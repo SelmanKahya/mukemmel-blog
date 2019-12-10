@@ -8,18 +8,26 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.3",
     "@zeit/next-sass": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
+    "apollo-boost": "^0.4.4",
     "autoprefixer": "^9.7.3",
-    "isomorphic-unfetch": "^3.0.0",
+    "graphql": "^14.5.8",
     "next": "9.1.4",
+    "next-with-apollo": "^4.3.0",
     "raw-loader": "^4.0.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-ga": "^2.7.0",
-    "react-markdown": "^4.2.2",
+    "react-html-parser": "^2.0.2",
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
-    "node-sass": "^4.13.0"
+    "@types/next": "^9.0.0",
+    "@types/node": "^12.12.14",
+    "@types/react": "^16.9.15",
+    "node-sass": "^4.13.0",
+    "typescript": "^3.7.3"
   }
 }

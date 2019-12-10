@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
 import UserDetails from "./userDetails";
+import ReactHtmlParser from 'react-html-parser';
+
 
 const SinglePost = props => {
   const {
@@ -16,7 +17,7 @@ const SinglePost = props => {
   } = props;
   if (!detailsPage) {
     return (
-      <Link href={slug}>
+      <Link href="/[postId]" as={`/${slug}`}>
         <div className="sm:w-1/4 m-5 bg-gray-100 p-5 rounded-lg cursor-pointer">
           <div id="blogImage">
             <img src={image} />
@@ -27,7 +28,7 @@ const SinglePost = props => {
             </Link>
           </h2>
           <div className="blog-text leading-relaxed">
-            <ReactMarkdown source={details} />
+            {ReactHtmlParser(details.substring(0, 250))}
           </div>
 
           <UserDetails name={userName} image={userImage} />
@@ -47,7 +48,7 @@ const SinglePost = props => {
           </Link>
         </h2>
         <div className="blog-text leading-relaxed">
-          <ReactMarkdown source={details} />
+          {ReactHtmlParser(details)}
         </div>
         <hr />
         <UserDetails name={userName} image={userImage} className="mt-5">
