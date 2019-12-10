@@ -3,6 +3,7 @@ import SinglePost from "../components/singlePost";
 import Page from "../layouts/main";
 import { useQuery } from '@apollo/react-hooks'
 import GET_ALL_POSTS_QUERY from '../graphql/queries/getPosts'
+import Loading from "../components/loading";
 
 
 const Home = () => {
@@ -16,7 +17,6 @@ const Home = () => {
       <Page>
         <div className="sm:flex flex-row justify-center">
           {data.posts.map(post => (
-
             <SinglePost
               title={post.title}
               slug={post.slug}
@@ -33,9 +33,7 @@ const Home = () => {
     )
   } else {
 
-    return (
-      <h1>loading</h1>
-    )
+    return <Loading />
   }
 };
 

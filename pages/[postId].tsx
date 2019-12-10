@@ -4,6 +4,7 @@ import SinglePost from "../components/singlePost";
 import { PostProps } from "../utils/props";
 import { useQuery } from "@apollo/react-hooks";
 import GET_SINGLE_POST_QUERY from '../graphql/queries/getSinglePost'
+import Loading from "../components/loading";
 
 
 
@@ -34,7 +35,7 @@ const BlogPost = (props: BlogPostProps) => {
     );
   } else {
     return (
-      <h1>Loading</h1>
+      <Loading/>
     )
   }
 

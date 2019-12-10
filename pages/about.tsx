@@ -3,6 +3,7 @@ import SinglePost from "../components/singlePost";
 import Page from "../layouts/main";
 import { useQuery } from "@apollo/react-hooks";
 import getPage from '../graphql/queries/getPage'
+import Loading from "../components/loading";
 
 const About = () => {
   const { data, loading } = useQuery(getPage('about'))
@@ -25,7 +26,7 @@ const About = () => {
       </Page>
     );
   } else {
-    return null
+    return <Loading/>
   }
 
 
