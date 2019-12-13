@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import LoginDialog from "./loginDialog";
 
 interface Props {
   minimal?: boolean
@@ -36,14 +37,17 @@ const socialLinks = () => (
   </div>
 )
 
-
-
 const Header = ({ minimal }: Props) => {
+
+
   if (!minimal) {
     return (
       <div className="hero">
         <h1 className="hero-title">Selman Kahya</h1>
         {socialLinks()}
+        <div className="inline">
+          <LoginDialog/>
+        </div>
       </div>
     );
   }
