@@ -14,16 +14,16 @@ const Home = ({ posts }) => (
     <div className="hero">
       <h1 className="hero-title">Selman Kahya</h1>
       <div className="hero-social-links">
-        <Link href="https://medium.com/@selmankahya">
+        <Link href="">
           <a className="social-link">Medium</a>
         </Link>
-        <Link href="https://www.twitter.com/selmankahyax">
+        <Link href="">
           <a className="social-link">Twitter</a>
         </Link>
-        <Link href="https://www.linkedin.com/in/selmankahya">
+        <Link href="">
           <a className="social-link">LinkedIn</a>
         </Link>
-        <Link href="https://www.instagram.com/selmankahyax/?hl=en">
+        <Link href="">
           <a className="social-link">Instagram</a>
         </Link>
       </div>
