@@ -16,5 +16,18 @@
     "react-markdown": "^4.2.2",
     "serverless-mysql": "^1.5.2",
     "sql-template-strings": "^2.2.2"
-  }
+  },
+  "description": "Dünyanın en güzel blog'u, www.mukemmel.blog!",
+  "main": "next.config.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BurakNash/PROJECT-Blog.git"
+  },
+  "author": "burak koc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BurakNash/PROJECT-Blog/issues"
+  },
+  "homepage": "https://github.com/BurakNash/PROJECT-Blog#readme"
 }
