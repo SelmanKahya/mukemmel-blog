@@ -43,7 +43,11 @@ const Header = ({ minimal }: Props) => {
   if (!minimal) {
     return (
       <div className="hero">
-        <h1 className="hero-title">Selman Kahya</h1>
+        <h1 className="hero-title">
+        <Link href="/">
+          <a>Selman Kahya</a>
+        </Link>
+        </h1>
         {socialLinks()}
         <div className="inline">
           <LoginDialog/>

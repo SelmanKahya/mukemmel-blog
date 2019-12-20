@@ -12,6 +12,18 @@ body {
   overflow-x: hidden;
 }
 
+.btn {
+  @apply p-3 text-center bg-gray-600 text-white cursor-pointer;
+
+  &.rounded {
+    @apply rounded-lg;
+  }
+  
+  a {
+    color:#fff!important;
+  }
+}
+
 p,
 a,
 h1,
@@ -39,7 +51,8 @@ a {
 
 .hero {
   text-align: center;
-  height: 18vh;
+  min-height: 18vh;
+  height: auto;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 12px 0px;
 }
 
@@ -62,14 +75,17 @@ a {
   top: 0;
   height: 100%;
   width: 100%;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.6);
 }
 .lds-ring {
-  position: relative;
+  position: absolute;
   width: 80px;
   height: 80px;
   margin: 0 auto;
-  top: 45vh;
+  top: 50%;
+  z-index: 3;
+  left: 50%;
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -98,5 +114,41 @@ a {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+
+.loginDialog {
+  width: 341px;
+  min-height: 25vh;
+  height: auto;
+  background-color: #fff;
+  z-index: 2;
+  position: fixed;
+  left: 35%;
+  margin: 0 auto;
+
+
+  @apply shadow-lg rounded-lg p-5;
+
+  label {
+    display:block
+  }
+}
+
+input {
+  @apply shadow-lg rounded-lg p-3 w-full
+}
+
+
+.newPost {
+  height: 500px;
+}
+
+.form-group {
+  margin: 20px;
+
+  label {
+    @apply font-semibold text-lg
   }
 }

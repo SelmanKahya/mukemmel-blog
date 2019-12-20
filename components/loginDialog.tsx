@@ -4,12 +4,18 @@ import LOGIN_QUERY from "../graphql/mutations/login";
 import ReactTooltip from 'react-tooltip'
 import Loading from "./loading";
 import Link from "next/link";
+import Cookies from 'js-cookie'
+import { inject, observer } from 'mobx-react';
+import { Store } from "../stores/stores";
+import { AuthStoreProps } from "../stores/AuthStore";
 
 
+interface Props {
+    authStore?: AuthStoreProps
+}
 
-
-const LoginDialog = () => {
-
+var LoginDialog = inject("authStore")(observer((props: Props) => {
+    
     const [showLoginDialog, setShowLoginDialog] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -20,6 +26,7 @@ const LoginDialog = () => {
     useEffect(() => {
         const userDetails = JSON.parse(localStorage.getItem('user'))
         localStorage.getItem('accessToken') ? setLoggedIn(true) : false
+        props.authStore.setLoggedIn(true)
         if (isLoggedIn) {
             setName(userDetails.user.name)
             setEmail(userDetails.user.email)
@@ -79,7 +86,9 @@ const LoginDialog = () => {
                 onCompleted={({ login }) => {
                     localStorage.setItem('accessToken', login.accessToken)
                     localStorage.setItem('user', JSON.stringify({ user: login }))
+                    Cookies.set('accessToken', login.accessToken)
                     setShowLoginDialog(false)
+                    props.authStore.setLoggedIn(true)
                     setLoading(false)
                 }}
             >
@@ -97,9 +106,8 @@ const LoginDialog = () => {
     }
 
     const logOut = () => {
-        localStorage.clear()
+        props.authStore.logout()
         setLoggedIn(false)
-
     }
 
     const _renderButton = () => {
@@ -131,7 +139,6 @@ const LoginDialog = () => {
         </div>
     )
 
-}
-
+}));
 
 export default LoginDialog

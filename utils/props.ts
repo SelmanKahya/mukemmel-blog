@@ -2,10 +2,11 @@ export interface PostProps {
     id:      number;
     title:   string;
     slug:    string;
-    details: string;
+    content: string;
     image:   string;
-    date:    string;
-    user:    User;
+    created_at:    string;
+    username:    string;
+    userImage: string
 }
 
 export interface User {

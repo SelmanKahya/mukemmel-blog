@@ -44,13 +44,13 @@ Bu proje nasıl kodlandı izlemek ister misin? Youtube videosu: https://youtu.be
 - ~~her iki sayfada tekrar eden kodu refactor et (düzenle) böylelikle kod tekrarı olmasın~~
 - sayfalama ekleyebilirsin
 - kendi domain'inde yayınlayabilirsin
-- yazıları paylaşma linki
+- ~~yazıları paylaşma linki~~
 - ~~statik sayfalar ekleyebilirsin (örn. hakkında)~~
 - ~~websitesi linkini ENV değişkeni olarak tanımla (localhost ve heroku linkleri arasında değişiklik yapmana gerek kalmasın, kod nerede çalıştığını anlayıp o linklerden doğru olana istek yapsın)~~
 - ~~google analytics ile entegre et ve ziyaretçi trafiğini takip et~~
 - ...
 
-### Zor
+### Zor 
 
 - şifre korulmalı yönetim paneli oluşturabilirsin
 - veritabanı entegrasyonu
