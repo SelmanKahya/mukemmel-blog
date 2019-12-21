@@ -1,22 +1,14 @@
-import Link from "next/link";
+import NavigationLink from "./NavigationLink";
 import './NavigationBar.css';
 
 const NavigationBar = () => (
   <div className="hero">
-    <Link href="/"><h1 className="hero-title">Selman Kahya</h1></Link>
+    <NavigationLink url="/" text="Selman Kahya" cssClass="hero-title" />
     <div className="hero-social-links">
-      <Link href="https://medium.com/@selmankahya">
-        <a className="social-link">Medium</a>
-      </Link>
-      <Link href="https://www.twitter.com/selmankahyax">
-        <a className="social-link">Twitter</a>
-      </Link>
-      <Link href="https://www.linkedin.com/in/selmankahya">
-        <a className="social-link">LinkedIn</a>
-      </Link>
-      <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-        <a className="social-link">Instagram</a>
-      </Link>
+      <NavigationLink url="https://medium.com/@selmankahya" text="Medium" cssClass="social-link" />
+      <NavigationLink url="https://www.twitter.com/selmankahyax" text="Twitter" cssClass="social-link" />
+      <NavigationLink url="https://www.linkedin.com/in/selmankahya" text="LinkedIn" cssClass="social-link" />
+      <NavigationLink url="https://www.instagram.com/selmankahyax" text="Instagram" cssClass="social-link" />
     </div>
   </div>
 )
