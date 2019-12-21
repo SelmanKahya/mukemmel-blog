@@ -6,13 +6,14 @@ import ReactMarkdown from "react-markdown";
 import Meta from '../components/Meta';
 
 import NavigationBar from '../components/NavigationBar';
+import Pagination from '../components/Pagination';
 
 class Home extends React.Component {
   static async getInitialProps({ query: { page=0 }}) {
     // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
     const res = await fetch("http://localhost:3000/api/posts?page="+page);
     const json = await res.json();
-    return { posts: json.posts };
+    return { posts: json.posts, pageNumber: page, isNextPageExists: json.isNextPageExists };
   }
 
   render() {
@@ -36,6 +37,8 @@ class Home extends React.Component {
           </div>
         ))
         }
+
+        <Pagination pageNumber={parseInt(this.props.pageNumber)} isNextPageExists={this.props.isNextPageExists} />
       </div>
     )
   }
