@@ -13,7 +13,7 @@ export default async ({ query: { page }}, res) => {
   if(posts.length == 0) {
     // If no posts exists in requested page
     // then return first page. 
-    posts = allPosts.slice(postCountInPages, postCountInPages*2);
+    posts = allPosts.slice(0, postCountInPages);
   }
 
   // Check if next page has any posts.
