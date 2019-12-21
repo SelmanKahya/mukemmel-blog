@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import LoginDialog from "./loginDialog";
+import RegisterDialog from "./registerDialog";
 
 interface Props {
   minimal?: boolean
@@ -51,6 +52,7 @@ const Header = ({ minimal }: Props) => {
         {socialLinks()}
         <div className="inline">
           <LoginDialog/>
+          <RegisterDialog/>
         </div>
       </div>
     );
