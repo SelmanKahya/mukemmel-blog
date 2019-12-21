@@ -21,12 +21,13 @@ const NewPost = inject('authStore')(observer((props: Props) => {
     const [content, setContent] = useState('')
 
     const _submitBtn = () => {
+        const accessToken = process.browser ? localStorage.getItem('accessToken')  : ""
         return (
             <Mutation mutation={NEW_POST_QUERY({
                 title: title,
                 content: content,
                 image: "image",
-                accessToken: localStorage.getItem('accessToken')
+                accessToken: accessToken
             })}
                 onCompleted={({ add_post }) => {
                    Router.push(`/${add_post.slug}`)
