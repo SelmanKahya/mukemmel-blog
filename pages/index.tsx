@@ -59,7 +59,7 @@ class Test extends React.Component<Props, {}> {
 
       return (
         <Page>
-          <div className="sm:flex flex-row justify-center">
+          <div className="sm:flex flex-row justify-center flex-wrap">
             {posts.map(post => (
               <SinglePost
                 title={post.title}
