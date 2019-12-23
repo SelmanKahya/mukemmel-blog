@@ -1,7 +1,7 @@
 import { inject } from "mobx-react";
 import { observer } from "mobx-react-lite";
 import React from 'react'
-import { AuthStoreProps } from "../stores/AuthStore";
+import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
 
 
 interface Props {

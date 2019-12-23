@@ -7,7 +7,7 @@ import Link from "next/link";
 import Cookies from 'js-cookie'
 import { inject, observer } from 'mobx-react';
 import { Store } from "../stores/stores";
-import { AuthStoreProps } from "../stores/AuthStore";
+import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
 import REGISTER_MUTATION from "../graphql/mutations/register";
 import Toast from 'light-toast'
 

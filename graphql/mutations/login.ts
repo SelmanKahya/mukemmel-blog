@@ -13,6 +13,7 @@ export default ({email, password}: Args) => gql`
             accessToken
             emailVerified
             name
+            profilePicture
         }
     }
 `;

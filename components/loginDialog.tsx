@@ -7,7 +7,8 @@ import Link from "next/link";
 import Cookies from 'js-cookie'
 import { inject, observer } from 'mobx-react';
 import { Store } from "../stores/stores";
-import { AuthStoreProps } from "../stores/AuthStore";
+import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
+import { User } from "../stores/AuthStore/AuthStore.props";
 
 
 interface Props {
@@ -26,6 +27,9 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
     useEffect(() => {
         const userDetails = JSON.parse(localStorage.getItem('user'))
         localStorage.getItem('accessToken') ? setLoggedIn(true) : false
+        props.authStore.updateUserInformation(userDetails)
+
+
         props.authStore.setLoggedIn(true)
         if (isLoggedIn) {
             setName(userDetails.user.name)
@@ -84,6 +88,7 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
                 password: password
             })}
                 onCompleted={({ login }) => {
+                    props.authStore.updateUserInformation(login)
                     localStorage.setItem('accessToken', login.accessToken)
                     localStorage.setItem('user', JSON.stringify({ user: login }))
                     Cookies.set('accessToken', login.accessToken)

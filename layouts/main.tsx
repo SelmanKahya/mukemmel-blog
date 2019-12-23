@@ -5,7 +5,7 @@ import React, { ReactElement } from "react";
 import "../public/app.scss";
 import LoggedIn from "../components/loggedIn";
 import { inject, observer } from "mobx-react";
-import { AuthStoreProps } from "../stores/AuthStore";
+import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
 
 interface PageProps {
   minimal?: boolean

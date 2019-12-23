@@ -1,7 +1,7 @@
 import Page from "../layouts/main"
 import { useState } from "react";
 import { inject, observer } from "mobx-react";
-import { AuthStoreProps } from "../stores/AuthStore";
+import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
 import dynamic from "next/dynamic";
 import { Mutation } from "@apollo/react-components";
 import NEW_POST_QUERY from "../graphql/mutations/newPost";
