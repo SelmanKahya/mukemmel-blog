@@ -7,13 +7,11 @@ import Loading from "../../components/loading";
 import { BlogPostProps } from "./postId.props";
 import { loadDB } from "../../utils/firebase";
 import { DocumentSnapshot } from "@firebase/firestore-types";
+import { PostProps, PageProps } from "../../utils/props";
+import Error from 'next/error'
 
 
-
-
-
-const BlogPost = (props: BlogPostProps) => {
-  const { post } = props;
+const renderPost = (post: PostProps): React.ReactNode => {
   return (
     <Page minimal={true} className="">
       <div className="container mx-auto w-8/12">
@@ -29,16 +27,55 @@ const BlogPost = (props: BlogPostProps) => {
       </div>
     </Page>
   );
+}
+
+const renderPage = (page: PageProps): React.ReactNode => {
+  return (
+    <Page minimal={true} className="">
+      <div className="container mx-auto w-8/12">
+        <SinglePost
+          title={"Hakkinda"}
+          slug={"hakkinda"}
+          details={page.content}
+          date={""}
+          image={""}
+          userName={""}
+          userImage={""}
+          detailsPage={true}
+        />
+      </div>
+    </Page>
+  );
+}
+
+const BlogPost = (props: BlogPostProps): React.ReactNode => {
+  const { post, page } = props;
+
+  if (post !== undefined) {
+    return renderPost(post)
+  }
+
+  if (page !== undefined) {
+    return renderPage(page)
+  }
+
+  return <Error statusCode={404} />
+
+
 
 };
 
 BlogPost.getInitialProps = async ({ query: { postId } }) => {
   const db = await loadDB()
   const posts = await db.firestore().collection('posts').where('slug', '==', postId).get()
-  const post = posts.docs.map(post => post.data())
+  let page = null;
+  if (posts.docs.length < 1) {
+    page = await db.firestore().collection('staticPages').doc(postId).get()
+  }
 
   return {
-    post: post[0]
+    post: posts.docs.map(post => post.data())[0],
+    page: page ? page.data() : undefined
   }
 };
 
