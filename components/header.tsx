@@ -30,7 +30,7 @@ const socialLinks = () => (
       </a>
 
     <div className="clearfix" />
-    <Link href="/about">
+    <Link href="/[postId]" as="/about">
       <a className="social-link" href="https://www.instagram.com/selmankahyax/?hl=en">
         About me
         </a>
