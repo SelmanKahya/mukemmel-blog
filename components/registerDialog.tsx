@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Mutation } from "@apollo/react-components";
-import LOGIN_QUERY from "../graphql/mutations/login";
-import ReactTooltip from 'react-tooltip'
-import Loading from "./loading";
-import Link from "next/link";
-import Cookies from 'js-cookie'
 import { inject, observer } from 'mobx-react';
-import { Store } from "../stores/stores";
 import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
 import REGISTER_MUTATION from "../graphql/mutations/register";
-import Toast from 'light-toast'
+import { toast } from 'react-toastify'
 
 interface Props {
     authStore?: AuthStoreProps
@@ -30,6 +24,17 @@ var RegisterDialog = inject("authStore")(observer((props: Props) => {
         </div>
 
     )
+
+    const onClickRegister = async () => {
+        const register = await props.authStore.registerUser(email, password)
+
+        if (register === true) {
+            setShowRegisterDialog(false)
+            toast.success(`Successfully registered`)
+        } else {
+            toast.error(register.message)
+        }
+    }
 
     const Dialog = () => {
 
@@ -69,7 +74,7 @@ var RegisterDialog = inject("authStore")(observer((props: Props) => {
                                 <input type="password" id="password" onChange={e => setPasswordConfirmation(e.target.value)} placeholder="password123" required />
                             </div>
 
-                            {_registerBtn()}
+                            <button className="btn rounded" > Register </button>
 
                         </form>
                     </div>
@@ -80,47 +85,12 @@ var RegisterDialog = inject("authStore")(observer((props: Props) => {
         }
 
     }
-    const _registerBtn = () => {
-        return (
-            <Mutation mutation={REGISTER_MUTATION({
-                email: email,
-                password: password,
-                password_confirmation: password,
-                name: name
-            })}
-                onCompleted={({ register }) => {
-                    setShowRegisterDialog(false)
-                    setLoading(false)
-                    Toast.success('You have now successfully registered, please log in.', 3000)
-                }}
-
-                onError={({ errors }) => {
-                    setLoading(false)
-                }}
-            >
-                {mutation => (
-                    <button className="btn rounded" onClick={e => {
-                        e.preventDefault()
-
-                        if (password !== passwordConfirmation) {
-                            Toast.fail('Your password must be equal!')
-                            return
-                        }
-                        mutation()
-                        setLoading(true)
-                    }}>
-                        Register
-              </button>
-                )}
-            </Mutation>
-        )
-    }
 
     return (
         <div>
             {authButtons()}
             {Dialog()}
-            {loading ? Toast.loading('Loading...') : null}
+            {loading ? 'loading'  : null}
         </div>
     )
 

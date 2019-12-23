@@ -27,8 +27,10 @@ const authStoreInitialData = {
     setLoggedIn: () => null,
     login: (email: string, password: string) => null,
     logout: () => null,
+    registerUser: (email: string, password: string) => null,
     user: userInitialData,
-    updateUserInformation: () => null
+    updateUserInformation: () => null,
+    setUserInformation: () => null
 }
 
 export default function initializeStore(initialData: Store = {authStore: authStoreInitialData}) {

@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
-import Cookies from 'js-cookie'
 import { Arguments, User } from './AuthStore.props';
 import { loadDB } from '../../utils/firebase';
+
 
 
 
@@ -11,17 +11,17 @@ class AuthStore {
   @observable loggedIn = false;
   @observable verified = false;
   @observable user: User
-  
+
   constructor(initialData: Arguments) {
     this.loggedIn = initialData.loggedIn
     this.verified = initialData.verified
-    this.user  = initialData.user
+    this.user = initialData.user
   }
 
   @action setLoggedIn(value: boolean) {
     this.loggedIn = value
   }
-  
+
   @action async login(email: string, password: string) {
     const db = await loadDB()
     return db.auth().signInWithEmailAndPassword(email, password).then(async ({ user }) => {
@@ -47,8 +47,35 @@ class AuthStore {
     this.setLoggedIn(false)
   }
 
-  @action updateUserInformation(user: User) {
+  @action setUserInformation(user: User) {
     this.user = user
+  }
+
+  @action async updateUserInformation(user: User) {
+    const db = await loadDB()
+
+    // db.auth().updateCurrentUser()
+
+  }
+
+  @action async registerUser(email: string, password: string) {
+    const db = await loadDB()
+    return db.auth().createUserWithEmailAndPassword(email, password).then(async ({ user }) => {
+      const token = await user.getIdToken(false)
+      const data: User = {
+        email: user.email,
+        emailVerified: user.emailVerified,
+        name: user.displayName,
+        profilePicture: user.photoURL,
+        accessToken: token
+      }
+      this.user = data
+      this.setLoggedIn(true)
+
+      return true
+    }).catch(err => {
+      return err
+    })
   }
 
 
