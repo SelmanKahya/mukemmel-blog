@@ -25,6 +25,7 @@ const authStoreInitialData = {
     loggedIn: false,
     verified: false,
     setLoggedIn: () => null,
+    login: (email: string, password: string) => null,
     logout: () => null,
     user: userInitialData,
     updateUserInformation: () => null

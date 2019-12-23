@@ -3,6 +3,8 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import withApollo from '../utils/withApollo';
 import { Provider } from 'mobx-react';
 import initializeStore from '../stores/stores';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 class MyApp extends App {
   static async getInitialProps(appContext) {
@@ -28,6 +30,7 @@ class MyApp extends App {
       <Provider {...this.mobxStore}>
         <ApolloProvider client={apollo}>
           <Component {...pageProps} />
+          <ToastContainer/>
         </ApolloProvider>
       </Provider>
     );

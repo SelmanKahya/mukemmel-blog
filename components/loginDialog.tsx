@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
-import { Mutation } from "@apollo/react-components";
-import LOGIN_QUERY from "../graphql/mutations/login";
 import ReactTooltip from 'react-tooltip'
 import Loading from "./loading";
 import Link from "next/link";
-import Cookies from 'js-cookie'
 import { inject, observer } from 'mobx-react';
-import { Store } from "../stores/stores";
 import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
-import { User } from "../stores/AuthStore/AuthStore.props";
-
-
+import { toast } from 'react-toastify';
 interface Props {
     authStore?: AuthStoreProps
 }
@@ -25,15 +19,12 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        const userDetails = JSON.parse(localStorage.getItem('user'))
-        localStorage.getItem('accessToken') ? setLoggedIn(true) : false
-        props.authStore.updateUserInformation(userDetails)
-
-
-        props.authStore.setLoggedIn(true)
-        if (isLoggedIn) {
-            setName(userDetails.user.name)
-            setEmail(userDetails.user.email)
+        if (props.authStore.loggedIn) {
+            setLoggedIn(true)
+            setName(props.authStore.user.name)
+            setEmail(props.authStore.user.email)
+        } else {
+            setLoggedIn(false)
         }
 
     })
@@ -70,8 +61,7 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
                                 <input type="password" id="password" onChange={e => setPassword(e.target.value)} placeholder="password123" required/>
                             </div>
 
-                            {_loginBtn()}
-
+                            <button className="btn rounded" onClick={_onClickLogin}> Log in </button>
                         </form>
                     </div>
 
@@ -81,38 +71,25 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
         }
 
     }
-    const _loginBtn = () => {
-        return (
-            <Mutation mutation={LOGIN_QUERY({
-                email: email,
-                password: password
-            })}
-                onCompleted={({ login }) => {
-                    props.authStore.updateUserInformation(login)
-                    localStorage.setItem('accessToken', login.accessToken)
-                    localStorage.setItem('user', JSON.stringify({ user: login }))
-                    Cookies.set('accessToken', login.accessToken)
-                    setShowLoginDialog(false)
-                    props.authStore.setLoggedIn(true)
-                    setLoading(false)
-                }}
-            >
-                {mutation => (
-                    <button className="btn rounded" onClick={e => {
-                        e.preventDefault()
-                        mutation()
-                        setLoading(true)
-                    }}>
-                        Log in
-              </button>
-                )}
-            </Mutation>
-        )
+
+    const _onClickLogin = async e => {
+        e.preventDefault()
+        const login = await props.authStore.login(email, password)
+        console.log(login)
+        if (login === true) {
+            setLoggedIn(true)
+            setShowLoginDialog(false)
+            toast.success(`Successfully logged in`)
+        } else {
+            toast.error(login.message)
+        }
     }
 
     const logOut = () => {
         props.authStore.logout()
         setLoggedIn(false)
+        toast.success(`Successfully logged out!`)
+
     }
 
     const _renderButton = () => {

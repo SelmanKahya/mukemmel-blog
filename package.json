@@ -21,7 +21,6 @@
     "draft-js": "^0.11.3",
     "graphql": "^14.5.8",
     "js-cookie": "^2.2.1",
-    "light-toast": "^0.2.2",
     "mobx": "^5.15.0",
     "mobx-react": "^6.1.4",
     "next": "9.1.4",
@@ -34,6 +33,7 @@
     "react-froala-wysiwyg": "^3.0.6",
     "react-ga": "^2.7.0",
     "react-html-parser": "^2.0.2",
+    "react-toastify": "^5.4.1",
     "react-tooltip": "^3.11.1",
     "tailwindcss": "^1.1.4"
   },
