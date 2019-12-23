@@ -2,16 +2,11 @@ import firebase from '@firebase/app';
 import '@firebase/firestore'
 import '@firebase/auth'
 import { FirebaseNamespace } from '@firebase/app-types';
-
+import cf from '../config'
 export function loadDB():FirebaseNamespace  {
   try {
     var config = {
-      apiKey: "AIzaSyC0Fn_mkWBno0Ow99k1KgphUKISKg5ww9k",
-      authDomain: "",
-      databaseURL: "",
-      projectId: "mukemmelim-ya",
-      storageBucket: "",
-      messagingSenderId: ""
+      ...cf.firebaseCredentials
     };
     firebase.initializeApp(config);
   } catch (err) {
