@@ -7,6 +7,7 @@ import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
 import { toast } from 'react-toastify';
 import { loadDB } from "../utils/firebase";
 import { User } from "../stores/AuthStore/AuthStore.props";
+import RegisterDialog from "./registerDialog";
 interface Props {
     authStore?: AuthStoreProps
 }
@@ -54,6 +55,8 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
     const authButtons = () => (
         <div>
             <div className="btn mx-auto" onClick={() => setShowLoginDialog(true)}>Log in</div>
+            <RegisterDialog/>
+
         </div>
 
     )
@@ -124,8 +127,13 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
                     </div>
 
                     <div className="btn mx-auto">
-                        <Link href="newPost">
+                        <Link href="new_post">
                             New Post
+                        </Link>
+                    </div>
+                    <div className="btn mx-auto">
+                        <Link href="update_profile">
+                            Update Profile
                         </Link>
                     </div>
                 </div>

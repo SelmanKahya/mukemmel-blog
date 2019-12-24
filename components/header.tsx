@@ -52,7 +52,7 @@ const Header = ({ minimal }: Props) => {
         {socialLinks()}
         <div className="inline">
           <LoginDialog/>
-          <RegisterDialog/>
+          {/* <RegisterDialog/> */}
         </div>
       </div>
     );

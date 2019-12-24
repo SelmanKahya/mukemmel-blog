@@ -8671,6 +8671,11 @@ unicode-property-aliases-ecmascript@^1.0.4:
   resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.0.5.tgz#a9cc6cc7ce63a0a3023fc99e341b94431d405a57"
   integrity sha512-L5RAqCfXqAwR3RriF8pM0lU0w4Ryf/GgzONwi6KnL1taJQa7x1TCxdJnILX59WIGOwR57IVxn7Nej0fz1Ny6fw==
 
+unidecode@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/unidecode/-/unidecode-0.1.8.tgz#efbb301538bc45246a9ac8c559d72f015305053e"
+  integrity sha1-77swFTi8RSRqmsjFWdcvAVMFBT4=
+
 unified-diff@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/unified-diff/-/unified-diff-3.0.0.tgz#4804e359f8e15cd058b28441ac92b08b6ed17a04"
@@ -8920,6 +8925,13 @@ url-polyfill@1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/url-polyfill/-/url-polyfill-1.1.7.tgz#402ee84360eb549bbeb585f4c7971e79a31de9e3"
   integrity sha512-ZrAxYWCREjmMtL8gSbSiKKLZZticgihCvVBtrFbUVpyoETt8GQJeG2okMWA8XryDAaHMjJfhnc+rnhXRbI4DXA==
+
+url-slug@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/url-slug/-/url-slug-2.2.0.tgz#b657b49d5b4716d935ebb35048fc18cbf27b600e"
+  integrity sha512-wHxRBFkyseL0xKS+EogZ1NOKjb3e3VmYeeG/Jq8zyVa47HsGvvf3NPLB4euFgz7iRGWBUqWgYVIXLjzOU0OQ5Q==
+  dependencies:
+    unidecode "^0.1.8"
 
 url@0.11.0, url@^0.11.0:
   version "0.11.0"
