@@ -1,6 +1,7 @@
 import firebase from '@firebase/app';
 import '@firebase/firestore'
 import '@firebase/auth'
+import '@firebase/storage'
 import { FirebaseNamespace } from '@firebase/app-types';
 import cf from '../config'
 export function loadDB():FirebaseNamespace  {

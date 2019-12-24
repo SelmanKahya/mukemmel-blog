@@ -156,7 +156,15 @@ input {
 
 .profilePage {
   width: 80%;
-  
-
   @apply mx-auto bg-gray-100;
+
+  .profilePicture {
+    height: 14vh;
+    .input {
+        height: 139px;
+        position: relative;
+        top: -140px;
+        opacity: 0;
+      }
+    }
 }

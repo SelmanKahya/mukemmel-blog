@@ -6,6 +6,7 @@ import "../public/app.scss";
 import LoggedIn from "../components/loggedIn";
 import { inject, observer } from "mobx-react";
 import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
+import Loading from "../components/loading";
 
 interface PageProps {
   minimal?: boolean
@@ -14,6 +15,7 @@ interface PageProps {
   loginRequired?: boolean
   verifiedToken?: boolean
   authStore?: AuthStoreProps
+  isLoading?: boolean
 }
 
 interface RenderChildren {
@@ -59,7 +61,7 @@ class Page extends React.Component<PageProps> {
   }
 
   render(): React.ReactNode {
-    const { minimal, children, className, loginRequired } = this.props;
+    const { minimal, children, className, loginRequired, isLoading } = this.props;
 
     return (
       <div>
@@ -78,6 +80,7 @@ class Page extends React.Component<PageProps> {
           />
         </Head>
         <Header minimal={minimal} />
+        { isLoading ? <Loading/> : null }
         {this.renderChildren({
           children: children,
           className: className,

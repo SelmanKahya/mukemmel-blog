@@ -51,10 +51,10 @@ class AuthStore {
     this.user = user
   }
 
-  @action async updateUserInformation(user: User) {
+  @action async updateUserInformation(updateParts) {
     const db = await loadDB()
 
-    // db.auth().updateCurrentUser()
+    return await db.auth().currentUser.updateProfile(updateParts)
 
   }
 
