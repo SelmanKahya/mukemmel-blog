@@ -1,6 +1,8 @@
 import { observable, action } from 'mobx';
 import { Arguments, User } from './AuthStore.props';
 import { loadDB } from '../../utils/firebase';
+import { FirebaseNamespace } from '@firebase/app-types';
+import { _FirebaseApp } from '@firebase/app-types/private';
 
 
 

@@ -1,6 +1,4 @@
 import App from 'next/app';
-import { ApolloProvider } from '@apollo/react-hooks';
-import withApollo from '../utils/withApollo';
 import { Provider } from 'mobx-react';
 import initializeStore from '../stores/stores';
 import { ToastContainer, toast } from 'react-toastify';
