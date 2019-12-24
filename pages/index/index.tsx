@@ -3,10 +3,13 @@ import SinglePost from "../../components/singlePost";
 import Page from "../../layouts/main";
 import { NextPageContext } from "next";
 import { loadDB } from "../../utils/firebase";
-import { Props } from "./index.props";
+import { AuthStoreProps } from "../../stores/AuthStore/AuthStore";
+import { PostProps } from "../../utils/props";
 
-
-
+export interface Props {
+  authStore: AuthStoreProps
+  posts: Array<PostProps>
+}
 
 class Test extends React.Component<Props, {}> {
   static getInitialProps = async (ctx: NextPageContext) => {

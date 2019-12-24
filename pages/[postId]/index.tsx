@@ -1,15 +1,15 @@
 import React from "react";
 import Page from "../../layouts/main";
 import SinglePost from "../../components/singlePost";
-import { useQuery } from "@apollo/react-hooks";
-import GET_SINGLE_POST_QUERY from '../../graphql/queries/getSinglePost'
-import Loading from "../../components/loading";
-import { BlogPostProps } from "./postId.props";
 import { loadDB } from "../../utils/firebase";
-import { DocumentSnapshot } from "@firebase/firestore-types";
 import { PostProps, PageProps } from "../../utils/props";
 import Error from 'next/error'
 
+
+interface BlogPostProps {
+  post: PostProps,
+  page: PageProps
+}
 
 const renderPost = (post: PostProps): React.ReactNode => {
   return (
