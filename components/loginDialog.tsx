@@ -5,12 +5,14 @@ import Link from "next/link";
 import { inject, observer } from 'mobx-react';
 import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
 import { toast } from 'react-toastify';
+import { loadDB } from "../utils/firebase";
+import { User } from "../stores/AuthStore/AuthStore.props";
 interface Props {
     authStore?: AuthStoreProps
 }
 
 var LoginDialog = inject("authStore")(observer((props: Props) => {
-    
+
     const [showLoginDialog, setShowLoginDialog] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -19,13 +21,33 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        if (props.authStore.loggedIn) {
-            setLoggedIn(true)
-            setName(props.authStore.user.name)
-            setEmail(props.authStore.user.email)
-        } else {
-            setLoggedIn(false)
-        }
+        const db = loadDB()
+
+        db.auth().onAuthStateChanged(user => {
+            if (user) {
+                setLoggedIn(true)
+                setName(user.displayName)
+                setEmail(user.email)
+                props.authStore.setLoggedIn(true)
+                user.getIdToken(false).then(token => {
+
+                    const data: User = {
+                        email: user.email,
+                        emailVerified: user.emailVerified,
+                        name: user.displayName,
+                        profilePicture: user.photoURL,
+                        accessToken: token
+                    }
+                    
+                    props.authStore.setUserInformation(data)
+                })
+
+
+            } else {
+                setLoggedIn(false)
+                props.authStore.setLoggedIn(false)
+            }
+        })
 
     })
 
@@ -51,14 +73,14 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
                                 <label htmlFor="email">
                                     Email
                                 </label>
-                                <input type="text" id="email" onChange={e => setEmail(e.target.value)} placeholder="test@email.com" required/>
+                                <input type="text" id="email" onChange={e => setEmail(e.target.value)} placeholder="test@email.com" required />
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="password">
                                     Password
                                 </label>
-                                <input type="password" id="password" onChange={e => setPassword(e.target.value)} placeholder="password123" required/>
+                                <input type="password" id="password" onChange={e => setPassword(e.target.value)} placeholder="password123" required />
                             </div>
 
                             <button className="btn rounded" onClick={_onClickLogin}> Log in </button>
@@ -117,7 +139,7 @@ var LoginDialog = inject("authStore")(observer((props: Props) => {
         <div>
             {_renderButton()}
             {Dialog()}
-            {loading ? <Loading/> : null}
+            {loading ? <Loading /> : null}
         </div>
     )
 
