@@ -16,10 +16,16 @@ export default class extends React.Component {
         return { Blogs: data }
         console.log(Blogs)
       })
-      render() {
-        const Blogs = this.props.Blogs
-        return (
-            <div>{Blogs.forEach(element => console.log(element))}</div>
-        );
-    }
+  render() {
+    const Blogs = this.props.Blogs
+    return (
+      <React.Fragment>
+        {Blogs.map(blog =>
+        <div key={"blog.id"}>
+          <p>Blog Name:{blog.Name}  </p>
+          <p>Blog Ranking:{blog.Ranking}</p>
+          </div>)}
+      </React.Fragment>
+    );
   }
+}
