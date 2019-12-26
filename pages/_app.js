@@ -22,17 +22,15 @@ class MyApp extends App {
   }
   
   render() {
-    const { Component, pageProps, apollo } = this.props;
+    const { Component, pageProps } = this.props;
 
     return (
       <Provider {...this.mobxStore}>
-        <ApolloProvider client={apollo}>
           <Component {...pageProps} />
           <ToastContainer/>
-        </ApolloProvider>
       </Provider>
     );
   }
 }
 
-export default withApollo(MyApp);
+export default MyApp;

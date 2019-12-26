@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Mutation } from "@apollo/react-components";
 import { inject, observer } from 'mobx-react';
 import { AuthStoreProps } from "../stores/AuthStore/AuthStore";
-import REGISTER_MUTATION from "../graphql/mutations/register";
 import { toast } from 'react-toastify'
+
 
 interface Props {
     authStore?: AuthStoreProps
