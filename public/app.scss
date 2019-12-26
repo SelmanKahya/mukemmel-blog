@@ -169,3 +169,10 @@ input {
       }
     }
 }
+
+
+.blog-text  {
+  * > img {
+    @apply mx-auto;
+  }
+}

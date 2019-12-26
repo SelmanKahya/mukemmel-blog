@@ -19,9 +19,6 @@ const SinglePost = props => {
     return (
       <Link href="/[postId]" as={`/${slug}`}>
         <div className="sm:w-1/4 m-5 bg-gray-100 p-5 rounded-lg cursor-pointer">
-          <div id="blogImage">
-            <img src={image} />
-          </div>
           <h2 className="font-bold text-2xl py-5">
             <Link href={slug}>
               <a className="blog-title-link">{title}</a>
@@ -39,9 +36,6 @@ const SinglePost = props => {
   } else {
     return (
       <div className="w-full m-5 p-5 rounded-lg">
-        <div id="blogImage">
-          <img src={image} className="w-5" />
-        </div>
         <h2 className="font-bold text-5xl py-5 text-center">
           <Link href={slug}>
             <a className="blog-title-link">{title}</a>

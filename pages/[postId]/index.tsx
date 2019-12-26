@@ -14,17 +14,21 @@ interface BlogPostProps {
 const renderPost = (post: PostProps): React.ReactNode => {
   return (
     <Page minimal={true} className="">
-      <div className="container mx-auto w-8/12">
-        <SinglePost
-          detailsPage={true}
-          slug=""
-          title={post.title}
-          details={post.content}
-          userName={post.username}
-          userImage={post.userImage}
-          date={post.created_at}
-        />
+      <div>
+        <div style={{backgroundImage: `url('${post.image}')`}} className="w-full  h-64 bg-center"/>
+        <div className="container mx-auto w-8/12">
+          <SinglePost
+            detailsPage={true}
+            slug=""
+            title={post.title}
+            details={post.content}
+            userName={post.username}
+            userImage={post.userImage}
+            date={post.created_at}
+          />
+        </div>
       </div>
+
     </Page>
   );
 }
