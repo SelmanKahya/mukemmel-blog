@@ -14,6 +14,11 @@ export interface PageProps {
     id: string
 }
 
+export interface CategoryProps extends Object {
+    name: string,
+    slug: string
+}
+
 export interface User {
     name:            string;
     profile_picture: string;

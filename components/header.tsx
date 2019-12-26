@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import LoginDialog from "./loginDialog";
 import RegisterDialog from "./registerDialog";
+import Categories from "./categories";
 
 interface Props {
   minimal?: boolean
@@ -54,6 +55,8 @@ const Header = ({ minimal }: Props) => {
           <LoginDialog/>
           {/* <RegisterDialog/> */}
         </div>
+        <Categories/>
+
       </div>
     );
   }
