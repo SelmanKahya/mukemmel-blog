@@ -1,4 +1,3 @@
-import { Editor, EditorState } from 'draft-js';
 import { useState, useEffect, useRef } from "react";
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
