@@ -5,6 +5,9 @@ import { AuthStoreProps } from "../../stores/AuthStore/AuthStore";
 import dynamic from "next/dynamic";
 import urlSlug from 'url-slug'
 import { loadDB } from "../../utils/firebase";
+import { CategoryProps } from "../../utils/props";
+import Router from 'next/router'
+import { toast } from "react-toastify";
 
 interface Props {
     authStore?: AuthStoreProps
@@ -16,9 +19,17 @@ const Editor = dynamic(
 )
 
 const NewPost = inject('authStore')(observer((props: Props) => {
+    const db = loadDB().firestore()
+
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [image, setImage] = useState('')
+    const [categories, setCategories] = useState([])
+    const [selectedCategory, SetCategory] = useState('')
+    db.collection('categories').get().then(categories => {
+        setCategories(categories.docs.map(category => category.data()))
+    })
+
     const currentUserName = props.authStore.user.name || props.authStore.user.email
     const currentUserImage = props.authStore.user.profilePicture
 
@@ -27,10 +38,10 @@ const NewPost = inject('authStore')(observer((props: Props) => {
         return
     }
 
-    const createNewPost = e => {
+    const createNewPost = async e => {
         e.preventDefault()
         const db = loadDB()
-        const uploadedImageUrl = _uploadImage(image)
+        const uploadedImageUrl = await _uploadImage(image)
 
         db.firestore().collection('posts').add({
             title: title,
@@ -39,10 +50,15 @@ const NewPost = inject('authStore')(observer((props: Props) => {
             created_at: Date.now(),
             username: currentUserName,
             userImage: currentUserImage,
-            image: uploadedImageUrl
+            image: uploadedImageUrl,
+            categoryId: selectedCategory
         }).then(resp => {
-            alert('tamamdir')
+            toast.success('Successfully created your post, redirecting in 2...')
+            setTimeout(() => {
+                Router.push('/[postId]', `/${urlSlug(title)}`)
+            })
         }).catch(err => {
+            toast.error('Error while creating your post..')
             console.log(err)
         })
     }
@@ -78,12 +94,22 @@ const NewPost = inject('authStore')(observer((props: Props) => {
                         <Editor onChange={e => setContent(e)} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="password">
+                        <label htmlFor="postImage">
                             Post Image
                         </label>
-                        <input type="file" onChange={_onChangeImage}/>
+                        <input type="file" id="postImage" onChange={_onChangeImage}/>
                     </div>
                     <div className="form-group">
+                        <label htmlFor="postCategory" className="block">
+                            Post Category
+                        </label>
+                        <select onChange={e => SetCategory(e.target.value)}>
+                            {categories.map((category: CategoryProps) => (
+                                <option value={category.slug}> { category.name } </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="form-group ">
                     <button className="btn rounded" onClick={createNewPost}>
                         Create new post
                     </button>
