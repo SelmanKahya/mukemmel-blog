@@ -10,9 +10,11 @@ import SearchBar from '../components/SearchBar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 import SocialMediaIcons from "../components/SocialMediaIcons";
-
+import BlogPost from "../components/BlogPost";
+import SideBar from "../components/SideBar";
 
 const Home = ({ posts }) => (
+
   <div>
     <div className="title">
       <Navbar className="fixed-top justify-content-center" bg="dark" variant="dark">
@@ -31,7 +33,10 @@ const Home = ({ posts }) => (
       <SocialMediaIcons/>
 
     </div>
-
+    <section className="container">
+      <BlogPost/>
+      <SideBar/>
+    </section>
     <div className="post-card">
       <div className="card-grid">
 
@@ -69,9 +74,10 @@ const Home = ({ posts }) => (
         </CardDeck>
       ))} */}
     </div>
+
     <Footer/>
 
-    <div className="container">
+    <div className="container-div">
       <Head>
         <title>Ahmet Dadak</title>
         <link rel="icon" href="/favicon.ico" />
@@ -100,8 +106,17 @@ const Home = ({ posts }) => (
         </div>
       ))} */}
     </div>
+
+
     <style jsx>{`
-      .container {
+    .container{
+        display: flex;
+        justify-content: space-between;
+        margin:;
+      }
+
+
+      .container-div{
         max-width: 650px;
         width: 100%;
         margin: 0 auto;
@@ -165,7 +180,7 @@ const Home = ({ posts }) => (
         text-decoration: none;
       }
     `}</style>
-  </div>
+    </div>
 );
 
 Home.getInitialProps = async ({ req }) => {

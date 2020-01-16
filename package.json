@@ -14,6 +14,7 @@
     "bootstrap-next": "^1.0.5",
     "font-awesome": "^4.7.0",
     "isomorphic-unfetch": "^3.0.0",
+    "mysql": "^2.17.1",
     "next": "9.1.4",
     "next-images": "^1.3.0",
     "raw-loader": "^4.0.0",

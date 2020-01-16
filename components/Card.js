@@ -15,7 +15,6 @@ class Card extends Component {
                             bilmem ne bilmem ne
                         </h4>
 
-
                         <div className="card-context-info">
                             <h6 className="card-context-date">29 September 2020</h6>
                             <div className="vl"/>
