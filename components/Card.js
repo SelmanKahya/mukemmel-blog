@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { FaCommentAlt, FaHeart, FaShareAlt } from 'react-icons/fa'
-//import '../node_modules/font-awesome/css/font-awesome.css'
 class Card extends Component {
     render() {
         return (
@@ -11,10 +9,8 @@ class Card extends Component {
                     </div>
                     <div className="card-info">
                         <h4 className="card-entry-title" >
-                            Buraya uzunca bir başlık gelecek how to hav tu mav tu
-                            bilmem ne bilmem ne
+                            {this.props.title}
                         </h4>
-
                         <div className="card-context-info">
                             <h6 className="card-context-date">29 September 2020</h6>
                             <div className="vl"/>
@@ -27,7 +23,7 @@ class Card extends Component {
                             </div>
                         </div>
                         <div className="card-article">
-                            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+                            {this.props.body}
                         </div>
                         <div className="card-minute-read">
                             4 minutes read

@@ -1,16 +1,22 @@
 import React from 'react'
 import Link from 'next/link';
+import auth0 from '../services/auth0';
 
-
-const login = () => {
+const Login = () => {
     return (
-        <div>
-            Login page.
-            <Link href="/addNewPost">
-   <a>myroute</a>
-</Link>
-        </div>
+        <div onClick={auth0.login} className="login"> Login
+        {/* <Link href="/addNewPost">
+            <a>myroute</a>
+        </Link> */}
+        <style jsx>{`
+            .login{
+                cursor: pointer;
+            }
+        `}
+
+        </style>
+         </div>
     )
 }
 
-export default login
+export default Login

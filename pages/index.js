@@ -12,7 +12,7 @@ import Card from '../components/Card'
 import SocialMediaIcons from "../components/SocialMediaIcons";
 import BlogPost from "../components/BlogPost";
 import SideBar from "../components/SideBar";
-
+//replace(/(([^\s]+\s\s*){20})(.*)/, "$1…")
 const Home = ({ posts }) => (
 
   <div>
@@ -21,76 +21,39 @@ const Home = ({ posts }) => (
         <Navbar.Brand href="/">Ahmet Dadak</Navbar.Brand>
       </Navbar>
 
-      <Nav className="bg-dark justify-content-center" style={{paddingTop: "60px", paddingBottom: "5px"}} >
+      <Nav className="bg-dark justify-content-center" style={{ paddingTop: "60px", paddingBottom: "5px" }} >
         <Nav.Link className="text-light" href="/">Home</Nav.Link>
         <Nav.Link className="text-light" href="/posts">Posts</Nav.Link>
         <Nav.Link className="text-light" href="about">About</Nav.Link>
         <Nav.Link className="text-light" href="#">Contact</Nav.Link>
-        <SearchBar/>
+        <SearchBar />
 
 
       </Nav>
-      <SocialMediaIcons/>
+      <SocialMediaIcons />
 
     </div>
     <section className="container">
-      <BlogPost/>
-      <SideBar/>
+      <BlogPost posts={posts}/>
+      <SideBar />
     </section>
-    <div className="post-card">
-      <div className="card-grid">
-
-        <div>
-        <Card/>
-        </div>
-        <div>
-        <Card/>
-        </div>
-
-
-    </div>
-
-
-      {/* {
-      posts.map(post => (
-        <CardDeck>
-            <Card style={{ marginTop: "50px" }}>
-            <Card.Img variant="top" src="1.jpg" />
-            <Card.Body>
-              <Link href={post.slug}>
-                <a className="blog-title-link">
-                  <Card.Title>{post.title}</Card.Title>
-                </a>
-              </Link>
-              <Card.Text>
-                <ReactMarkdown source={post.details} />
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">{post.date}</small>
-            </Card.Footer>
-          </Card>
-
-        </CardDeck>
-      ))} */}
-    </div>
-
-    <Footer/>
+    <Footer />
 
     <div className="container-div">
       <Head>
         <title>Ahmet Dadak</title>
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-        crossorigin="anonymous"/>
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
         <link
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossorigin="anonymous"/>
-        </Head>
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous" />
+      </Head>
 
       {/* {posts.map(post => (
         <div className="blog">
@@ -180,7 +143,7 @@ const Home = ({ posts }) => (
         text-decoration: none;
       }
     `}</style>
-    </div>
+  </div>
 );
 
 Home.getInitialProps = async ({ req }) => {
