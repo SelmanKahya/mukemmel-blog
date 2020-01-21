@@ -5,9 +5,6 @@ import auth0 from '../services/auth0';
 const Login = () => {
     return (
         <div onClick={auth0.login} className="login"> Login
-        {/* <Link href="/addNewPost">
-            <a>myroute</a>
-        </Link> */}
         <style jsx>{`
             .login{
                 cursor: pointer;

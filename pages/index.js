@@ -6,13 +6,16 @@ import ReactMarkdown from "react-markdown";
 import { FaLinkedinIn, FaMediumM, FaGithub, FaSearch } from 'react-icons/fa'
 import { CardDeck, Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap'
 //import {Card} from 'react-bootstrap'
+import auth0 from '../services/auth0';
 import SearchBar from '../components/SearchBar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 import SocialMediaIcons from "../components/SocialMediaIcons";
 import BlogPost from "../components/BlogPost";
 import SideBar from "../components/SideBar";
+import auth0Client from "../services/auth0";
 //replace(/(([^\s]+\s\s*){20})(.*)/, "$1…")
+
 const Home = ({ posts }) => (
 
   <div>
@@ -25,7 +28,9 @@ const Home = ({ posts }) => (
         <Nav.Link className="text-light" href="/">Home</Nav.Link>
         <Nav.Link className="text-light" href="/posts">Posts</Nav.Link>
         <Nav.Link className="text-light" href="about">About</Nav.Link>
-        <Nav.Link className="text-light" href="#">Contact</Nav.Link>
+        <Nav.Link className="text-light clickable" onClick={auth0.login}>Login</Nav.Link>
+        <Nav.Link className="text-light clickable" onClick={auth0.logout}>Logout</Nav.Link>
+
         <SearchBar />
 
 
@@ -35,7 +40,7 @@ const Home = ({ posts }) => (
     </div>
     <section className="container">
       <BlogPost posts={posts}/>
-      <SideBar />
+      <SideBar/>
     </section>
     <Footer />
 
@@ -118,7 +123,9 @@ const Home = ({ posts }) => (
         text-align: center;
         margin: 96px 0;
       }
-
+      .clickable{
+        cursor:pointer;
+      }
       .hero-social-links{
         margin:20px;
         color: green;
@@ -146,10 +153,11 @@ const Home = ({ posts }) => (
   </div>
 );
 
-Home.getInitialProps = async ({ req }) => {
+Home.getInitialProps = async ({ req, ctx}) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("http://localhost:3000/api/posts");
   const json = await res.json();
+  const isAuthenticated = process.browser ? auth0.clientAuth() : auth0.serverAuth(req);
   return { posts: json.posts };
 };
 

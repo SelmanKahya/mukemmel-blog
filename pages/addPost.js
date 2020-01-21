@@ -61,7 +61,7 @@ class AddPost extends Component {
               </div>
               <div className="col-md-12">
                 <fieldset>
-                  <button className="btn btn-lg pro" id="submit" value="Submit">Send Message</button>
+                  <button className="btn btn-lg pro" id="submit" value="Submit">Login</button>
                 </fieldset>
               </div>
             </form>}
