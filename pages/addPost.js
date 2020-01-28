@@ -8,7 +8,7 @@ class AddPost extends Component {
         this.state = {
           fields: {},
           errors: {},
-          isValid: false
+          isValid: true
         }
       }
 

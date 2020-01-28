@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const SideBar = () => {
-  return (
-    <div className="sidebarContainer">
+class SideBar extends Component {
+  render() {
+    return (
+      <div className="sidebarContainer" style={{width: this.props.width, marginTop: this.props.marginTop}}>
       <div className="about">
-        <div className="cardHeaderAbout">
+        {/* <div className="cardHeaderAbout">
           <span>About Me</span>
-        </div>
+        </div> */}
         <div className="profileImageContainer">
           <img src="./2.jpg" />
         </div>
@@ -22,7 +23,6 @@ const SideBar = () => {
         <div className="cardHeaderFeatured">
           <span >Featured</span>
         </div>
-        <hr />
         <div className="widget_most_popular">
           <ul>
             <li>
@@ -73,9 +73,8 @@ const SideBar = () => {
 
       <div className="mc4wp-form-fields">
       <div className="cardHeaderNewsletter">
-          <span >Newsletter Signup</span>
+          Newsletter Signup
         </div>
-
         <input type="email" name="EMAIL" placeholder="Your email address" required />
         <input className = "newsbutton" type="submit" value="Subscribe" />
       </div>
@@ -84,14 +83,14 @@ const SideBar = () => {
       </div>
       <style jsx>{`
               .sidebarContainer{
-                margin-top:60px;
-                width:27%;
 
               }
               .about{
-                border-width: 1px;
-                border-style: solid;
-                background: #f0f0f0
+                border-top: 1px solid #eaeaea;
+                border-left: 1px solid #eaeaea;
+                border-right: 1px solid #eaeaea;
+                border-bottom: 1px solid #eaeaea;
+                background: #ffffff;
               }
               .cardHeaderAbout{
                 text-transform: uppercase;
@@ -100,7 +99,7 @@ const SideBar = () => {
                 padding: 10px 0;
                 box-sizing: border-box;
                 letter-spacing: 2px;
-                color: #962838
+                color: #5E2C99;
               }
 
               .profileImageContainer{
@@ -109,15 +108,18 @@ const SideBar = () => {
               }
               .profileImageContainer img{
                 border-radius: 50%;
-                width: 160px;
-                height: 160px;
-                margin: 0 auto;
+                width: 150px;
+                height: 150px;
+                vertical-align: middle;
+                max-width: 100%;
+                border: 0;
+                margin: 25px auto;
                 text-align: center;
                 display: block;
               }
               .aboutContext{
                   display: block;
-                  color: #962838;
+                  color: #5E2C99;
                   margin-top: 25px;
                   margin-left: 25px;
                   margin-right: 25px;
@@ -128,10 +130,15 @@ const SideBar = () => {
                   letter-spacing: 0px;
                   line-height: 1.75;
                   text-transform: none;
+                  color: #626264;
               }
               .featured{
                 margin-top:60px;
-                background: #f0f0f0;
+                border-top: 1px solid #eaeaea;
+                border-left: 1px solid #eaeaea;
+                border-right: 1px solid #eaeaea;
+                border-bottom: 1px solid #eaeaea;
+                background: #ffffff;
               }
               .cardHeaderFeatured{
                 text-transform: uppercase;
@@ -140,7 +147,7 @@ const SideBar = () => {
                 padding: 10px 0;
                 box-sizing: border-box;
                 letter-spacing: 2px;
-
+                color: #5E2C99;
               }
               .widget_most_popular ul li {
                 display: flex;
@@ -159,7 +166,7 @@ const SideBar = () => {
               max-width: 100%;
               width: 64px;
               height: 64px;
-          }
+            }
           .widget_most_popular ul li .content {
             flex: 1;
             width: auto;
@@ -177,7 +184,7 @@ const SideBar = () => {
           }
           .content h5 a:hover{
 
-            color:#ffffff;
+            color:#FF5D40;
           }
           .widget_most_popular ul li .content .data .author{
             color:#3a3a3a;
@@ -188,13 +195,14 @@ const SideBar = () => {
             text-transform: none;
           }
           .cardHeaderNewsletter{
-            text-transform: uppercase;
+              text-transform: uppercase;
             font-size: 15px;
             text-align: center;
             padding: 10px 0;
             box-sizing: border-box;
             letter-spacing: 2px;
-            color: #962838
+            color: #5E2C99;
+
           }
           .mc4wp-form-fields input[type="email"] {
             width: 100%;
@@ -209,14 +217,42 @@ const SideBar = () => {
         max-width: 100%;
         appearance: none;
     }
+    .mc4wp-form-fields{
+      margin-top: 60px;
+      border-top: 1px solid #eaeaea;
+      border-left: 1px solid #eaeaea;
+      border-right: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeae;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
     .newsbutton{
       color: #ffffff;
-      background-color: #191e23;
+      background-color: #5E2C99;
+    }
+    .coffee{
+      margin-top: 60px;
+
+    }
+    .coffeebutton{
+      color: #492378;
+      font-size: 20px;
+      border-top: 1px solid #eaeaea;
+      border-left: 1px solid #eaeaea;
+      border-right: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
+      background: #ffffff;
+      width: 100%;
+    }
+    .coffeebutton:hover{
+      color: #8C43E6;
     }
 
             `}</style>
     </div>
-  )
+    )
+  }
 }
-
 export default SideBar

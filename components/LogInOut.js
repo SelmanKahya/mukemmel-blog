@@ -13,7 +13,7 @@ export default class LogInOut extends Component {
         auth0.login();
         this.setState({isAuthenticated: true})
     }
-    logout= () => {
+    logout = () => {
         auth0.logout();
         this.setState({isAuthenticated: false})
     }

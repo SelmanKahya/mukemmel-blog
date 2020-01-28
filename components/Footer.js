@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FaLinkedinIn, FaMediumM, FaGithub } from 'react-icons/fa'
+import { FaLinkedinIn, FaMediumM, FaGithub, FaKaggle } from 'react-icons/fa'
 import { Nav, Form, Button, FormControl } from 'react-bootstrap'
 class Footer extends Component {
   constructor() {
@@ -7,7 +7,8 @@ class Footer extends Component {
     this.state = {
       isMediumHover: false,
       isLinkedinHover: false,
-      isGithubHover: false
+      isGithubHover: false,
+      isKaggleHover: false
     };
   }
   onMouseEnterHandlerMedium= () => {
@@ -43,6 +44,17 @@ class Footer extends Component {
       isGithubHover: false
     });
   }
+  onMouseEnterHandlerKaggle = () => {
+    this.setState({
+      isKaggleHover: true
+    });
+  }
+
+  onMouseLeaveHandlerKaggle = () => {
+    this.setState({
+      isKaggleHover: false
+    });
+  }
   render() {
     return (
 
@@ -61,6 +73,9 @@ class Footer extends Component {
           <Nav.Link href="https://www.github.com/ahmetdadak" onMouseEnter={this.onMouseEnterHandlerGithub} onMouseLeave={this.onMouseLeaveHandlerGithub}>
             {this.state.isGithubHover ? <FaGithub style={{ fill: "#bd2c00" }} /> : <FaGithub style={{ fill: "#f5f5f5" }} />}
           </Nav.Link>
+          {/* <Nav.Link href="https://www.kaggle.com/ahmetdadak" onMouseEnter={this.onMouseEnterHandlerKaggle} onMouseLeave={this.onMouseLeaveHandlerKaggle}>
+            {this.state.isKaggleHover ? <FaKaggle style={{ fill: "#20beff" }} /> : <FaKaggle style={{ fill: "#f5f5f5" }} />}
+          </Nav.Link> */}
         </Nav>
 
         <h5>

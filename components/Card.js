@@ -3,7 +3,7 @@ class Card extends Component {
     render() {
         return (
             <div>
-                <div className="card-outer">
+                <div className="card-outer" style={{marginTop: this.props.marginTop}}>
                     <div className="card-image-outer">
                     <img className="card-image" src = "./cover.jpg"></img>
                     </div>
@@ -26,27 +26,23 @@ class Card extends Component {
                             {this.props.body}
                         </div>
                         <div className="card-minute-read">
-                            4 minutes read
+                            {this.props.minute} min read
                         </div>
                     </div>
 
                 </div>
                 <style jsx>{`
                 .card-outer{
-                  border-radius: 5px;
-                  margin-top: 60px;
                   width:320px;
                 }
                 .card-image-outer{
-                    border-top-left-radius: 5px;
-                    border-top-right-radius: 5px;
+
                     width: 320px;
                     height: 240px;
                     overflow: hidden;
                 }
                 .card-image{
-                    border-top-left-radius: 5px;
-                    border-top-right-radius: 5px;
+
                     width: 320px;
                     height: 240px;
                     -webkit-transform: scale(1);
@@ -85,26 +81,25 @@ s                }
                 }
                 .card-feed-numbers-heart{
                     margin-right: 1%;
-                    color: #567E99;
+                    color: #A993BF;
                     display: inline-block;
                 }
                 .card-feed-numbers-comment{
                     margin-right:1%;
-                    color: #567E99;
+                    color: #A993BF;
                     display: inline-block;
                 }
                 .card-info{
-                    border-bottom-left-radius: 5px;
-                    border-bottom-right-radius: 5px;
+
                     width: 320px;
-                    height: 320px;
-                    background-color:#435866;
+                    height: auto;
+                    background-color: #fbfbfb;
                 }
                 .card-entry-title {
                     padding-top: 20px;
                     padding-left: 20px;
                     padding-right: 20px;
-                    color: white;
+                    color: #3a3a3a;
                     font-family: "Noto Serif", Georgia, serif;
                     font-size: 23px;
                     font-weight: 700;
@@ -120,7 +115,7 @@ s                }
                 .card-context-date{
                     display: inline;
                     margin-right: 2%;
-                    color: #567E99;
+                    color: #A993BF;
                 }
                 .vl {
                     margin-right: 2%;
@@ -136,12 +131,18 @@ s                }
                 }
                 .card-article{
                     padding: 20px;
-                    color: white;
+                    font-family: "Noto Sans", Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    letter-spacing: 0px;
+                    line-height: 1.75;
+                    text-transform: none;
+                    color: #626264;
                 }
                 .card-minute-read{
                     margin-right: 20px;
                     float: right;
-                    color: #567E99;
+                    color: #D697FF;
                 }
             `}</style>
             </div>

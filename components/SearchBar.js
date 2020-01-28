@@ -12,33 +12,29 @@ class SearchBar extends Component {
         return (
             <div>
                 <div className="search-box">
+                    <a className="search-btn" href="#"><FaSearch style={{color:"#B335F7"}}/></a>
                     <input className="search-txt" type="text" name="" placeholder="Type here" />
-                    <a className="search-btn" href="#">
-                        <FaSearch/>
-                    </a>
                 </div>
 
                 <style jsx>{`
-                .container{
-                    margin: 0;
-                    padding:;
-                    background: #e84118
-                }
+
                 .search-box{
-                    position: absolute;
-                    margin-bottom: 2px;
-                    background: #2f3640;
                     height: 40px;
                     border-radius: 40px;
                 }
+                .search-box:hover{
+                    background: #2f3640;
+                }
                 .search-box:hover > .search-txt{
-                    width: 240px;
                     padding: 0 6px;
+                    width: 85%;
                 }
                 .search-box:hover > .search-btn{
                     background: white;
+
                 }
                 .search-btn{
+
                     color: #e84118;
                     float: right;
                     width: 40px;
@@ -48,14 +44,13 @@ class SearchBar extends Component {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    transition: 0.4s;
-
                 }
                 .search-txt{
+                    display:block;
+                    margin: 0 0 0 auto;
                     border: none;
                     background: none;
                     outline: none;
-                    float: left;
                     padding: 0;
                     color: white;
                     font-size: 16px;
