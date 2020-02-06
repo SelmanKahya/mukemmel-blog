@@ -1,18 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link} from '../routes';
+import moment from 'moment';
+
 class Card extends Component {
     render() {
         return (
             <div>
+                <Link route = {this.props.route}>
+                <a>
                 <div className="card-outer" style={{marginTop: this.props.marginTop}}>
                     <div className="card-image-outer">
                     <img className="card-image" src = "./cover.jpg"></img>
                     </div>
                     <div className="card-info">
+
                         <h4 className="card-entry-title" >
                             {this.props.title}
                         </h4>
                         <div className="card-context-info">
-                            <h6 className="card-context-date">29 September 2020</h6>
+                            <h6 className="card-context-date">{moment(this.props.date).format('LLLL')}</h6>
                             <div className="vl"/>
                             <div className="card-feed">
                             <h6 className="card-feed-numbers-comment">120</h6>
@@ -26,11 +32,13 @@ class Card extends Component {
                             {this.props.body}
                         </div>
                         <div className="card-minute-read">
-                            {this.props.minute} min read
+                            {this.props.minute} min read {this.props.route}
                         </div>
                     </div>
-
                 </div>
+                </a>
+
+                </Link>
                 <style jsx>{`
                 .card-outer{
                   width:320px;

@@ -5,32 +5,41 @@ import Footer from '../components/Footer';
 import withAuth from '../components/hoc/withAuth';
 import Head from "next/head";
 import SlateEditor from '../components/slate-editor/Editor'
-import {createBlog} from '../actions';
-import { Router } from '../routes';
+import {getBlogById, updateBlog} from '../actions';
 import {toast} from 'react-toastify' ;
+class BlogEditorUpdate extends Component {
 
-class BlogEditor extends Component {
+
+    static async getInitialProps( {query} ){
+        const blogId = query.id;
+        let blog = {};
+        try{
+            blog = await getBlogById(blogId);
+        }catch(err){
+            console.error(err);
+        }
+        return {blog};
+    }
 
   constructor(props){
     super(props);
     this.state = {
-      isSaving: false,
-      lockId: Math.floor(1000 + Math.random() * 9000)
+      isSaving: false
     }
-    this.saveBlog = this.saveBlog.bind(this);
+    this.updateBlog = this.updateBlog.bind(this);
   }
-  saveBlog(story, heading){
-    const {lockId} = this.state;
-    const blog = {};
-    blog.title = heading.title;
-    blog.subtitle = heading.subtitle;
-    blog.story = story.toString();
+
+  updateBlog(story, heading){
+    const {blog} = this.props;
+    const updatedBlog = {};
+    updatedBlog.title = heading.title;
+    updatedBlog.subtitle = heading.subtitle;
+    updatedBlog.story = story.toString();
 
     this.setState({isSaving: true});
-    createBlog(blog, lockId).then(createdBlog => {
+    updateBlog(blog, blog._id).then(updatedBlog => {
+      toast.success('Blog Updated Succesfuly!');
       this.setState({isSaving: false});
-      toast.success('Blog Saved Succesfuly!');
-      Router.pushRoute(`/blogs/${createdBlog._id}/edit`);
     }).catch(err => {
       this.setState({isSaving: false});
         const message = err.message ||'Server Error';
@@ -40,12 +49,13 @@ class BlogEditor extends Component {
   }
 
   render() {
+    const { blog } = this.props;
     const {isSaving} = this.state;
     return (
       <div>
         <Header isAuthenticated={this.props.auth.isAuthenticated}/>
           <div className="container">
-          <SlateEditor isLoading={isSaving} save={this.saveBlog}/>
+          <SlateEditor initialValue = {blog.story} isLoading={isSaving} save={this.updateBlog}/>
           </div>
           <Footer/>
           <div>
@@ -70,4 +80,4 @@ class BlogEditor extends Component {
     )
   }
 }
-export default withAuth('siteOwner')(BlogEditor);
+export default withAuth('siteOwner')(BlogEditorUpdate);

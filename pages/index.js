@@ -1,32 +1,35 @@
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
-import Link from "next/link";
+//import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { FaLinkedinIn, FaMediumM, FaGithub, FaSearch } from 'react-icons/fa'
-import { CardDeck, Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap'
-//import {Card} from 'react-bootstrap'
-import auth0 from '../services/auth0';
-import SearchBar from '../components/SearchBar';
 import Footer from '../components/Footer'
-import Card from '../components/Card'
-import SocialMediaIcons from "../components/SocialMediaIcons";
 import BlogPost from "../components/BlogPost";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header"
-import auth0Client from "../services/auth0";
-//replace(/(([^\s]+\s\s*){20})(.*)/, "$1…")
-import React, { Component } from 'react'
-
+import { getBlogs} from '../actions';
+import {Link} from '../routes';
+import React, { Component } from 'react';
 class Index extends Component {
   constructor(){
     super();
   }
+
+  static async getInitialProps({req}) {
+    let blogs = [];
+    try {
+      blogs = await getBlogs(req);
+    } catch(err){
+        console.error(err);
+    }
+    return {blogs}
+  }
+
   render() {
     return (
-      <div >
+      <div>
       <Header user={this.props.auth.user} isAuthenticated={this.props.auth.isAuthenticated}/>
       <div className="container">
-        <BlogPost marginTop= "0px" width = "66%" className="blogPostmain" posts={this.props.posts}/>
+        <BlogPost marginTop= "0px" width = "66%" className="blogPostmain" blogs={this.props.blogs}/>
         <SideBar marginTop= "60px" width = "29%" className = "sidebarmain"/>
       </div>
       <Footer />
@@ -47,7 +50,6 @@ class Index extends Component {
             integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             crossorigin="anonymous" />
             <link href="https://fonts.googleapis.com/css?family=Qwigley&display=swap" rel="stylesheet"/>
-            <link href="../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css" rel="stylesheet"/>
         </Head>
       </div>
 
@@ -128,11 +130,11 @@ class Index extends Component {
   }
 }
 
-Index.getInitialProps = async ({ req, ctx}) => {
-  // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
-  const json = await res.json();
-  return { posts: json.posts};
-};
+// Index.getInitialProps = async ({ req, ctx}) => {
+//   TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
+//   const res = await fetch("http://localhost:3000/api/posts");
+//   const json = await res.json();
+//   return { posts: json.posts};
+// };
 
 export default Index;

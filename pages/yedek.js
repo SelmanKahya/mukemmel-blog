@@ -5,47 +5,40 @@ import Footer from '../components/Footer';
 import withAuth from '../components/hoc/withAuth';
 import Head from "next/head";
 import SlateEditor from '../components/slate-editor/Editor'
-import {createBlog} from '../actions';
+import { createBlog } from '../actions';
 import { Router } from '../routes';
-import {toast} from 'react-toastify' ;
-
-class BlogEditor extends Component {
+class Deneme extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      isSaving: false,
-      lockId: Math.floor(1000 + Math.random() * 9000)
+      isSaving: false
     }
     this.saveBlog = this.saveBlog.bind(this);
   }
   saveBlog(story, heading){
-    const {lockId} = this.state;
     const blog = {};
     blog.title = heading.title;
     blog.subtitle = heading.subtitle;
     blog.story = story.toString();
 
     this.setState({isSaving: true});
-    createBlog(blog, lockId).then(createdBlog => {
+    createBlog(blog).then(createdBlog => {
       this.setState({isSaving: false});
-      toast.success('Blog Saved Succesfuly!');
-      Router.pushRoute(`/blogs/${createdBlog._id}/edit`);
+      //Router.pushRoute(`/blogs/${createdBlog._id}/edit`);
     }).catch(err => {
       this.setState({isSaving: false});
         const message = err.message ||'Server Error';
-        toast.error('Unexpected Error');
-        console.error(message);
-      })
+    })
   }
 
   render() {
-    const {isSaving} = this.state;
+    //const {isSaving} = this.state;
     return (
       <div>
         <Header isAuthenticated={this.props.auth.isAuthenticated}/>
           <div className="container">
-          <SlateEditor isLoading={isSaving} save={this.saveBlog}/>
+          {/* <SlateEditor isLoading={isSaving} save={this.saveBlog}/> */}
           </div>
           <Footer/>
           <div>
@@ -70,4 +63,4 @@ class BlogEditor extends Component {
     )
   }
 }
-export default withAuth('siteOwner')(BlogEditor);
+export default withAuth('siteOwner')(Deneme);

@@ -1,18 +1,28 @@
-import React, { Component } from 'react'
-import auth0Client from '../services/auth0';
-import {withRouter} from 'next/router';
+import React, { Component } from 'react';
+import Header from "../components/Header"
+import Footer from '../components/Footer';
 import Head from "next/head";
-
-class Callback extends Component {
-    async componentDidMount(){
-        await auth0Client.handleAuthentication();
-        this.props.router.push('/');
+import {getBlogBySlug} from '../actions';
+class About extends Component {
+  static async getInitialProps({query}) {
+    let blog = {};
+    const slug = query.slug;
+    try {
+      blog = await getBlogBySlug(slug);
+    } catch(err){
+      console.error(err);
     }
-    render() {
-        return (
-            <div>
-                <h3>Verifying login data ...</h3>
-                <div>
+    return {blog}
+  }
+  render() {
+    const {blog} = this.props;
+    console.log(blog);
+    return (
+      <div>
+        <Header isAuthenticated={this.props.auth.isAuthenticated}/>
+          <div dangerouslySetInnerHTML={{__html: blog.story}}></div>
+          <Footer/>
+          <div>
         <Head>
           <title>Ahmet Dadak</title>
           <meta name = "viewport" content="width=device-width, initial-scale=1.0"/>
@@ -30,9 +40,8 @@ class Callback extends Component {
             <link href="https://fonts.googleapis.com/css?family=Qwigley&display=swap" rel="stylesheet"/>
         </Head>
       </div>
-            </div>
-        )
-    }
+      </div>
+    )
+  }
 }
-
-export default withRouter(Callback);
+export default About;

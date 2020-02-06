@@ -1,51 +1,63 @@
 import React, { Component } from 'react';
 import Header from "../components/Header"
-import Link from "next/link"
+//import Link from "next/link"
 import Footer from '../components/Footer';
-import withAuth from '../components/hoc/withAuth';
 import Head from "next/head";
-import SlateEditor from '../components/slate-editor/Editor'
-import {createBlog} from '../actions';
-import { Router } from '../routes';
-import {toast} from 'react-toastify' ;
+import withAuth from '../components/hoc/withAuth';
+import {getUserBlogs} from '../actions';
+import {Link} from '../routes';
+class UserBlogs extends Component {
 
-class BlogEditor extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      isSaving: false,
-      lockId: Math.floor(1000 + Math.random() * 9000)
+  static async getInitialProps({req}) {
+    let blogs = [];
+    try {
+      blogs = await getUserBlogs(req);
+    } catch(err){
+        console.error(err);
     }
-    this.saveBlog = this.saveBlog.bind(this);
+    return {blogs}
   }
-  saveBlog(story, heading){
-    const {lockId} = this.state;
-    const blog = {};
-    blog.title = heading.title;
-    blog.subtitle = heading.subtitle;
-    blog.story = story.toString();
 
-    this.setState({isSaving: true});
-    createBlog(blog, lockId).then(createdBlog => {
-      this.setState({isSaving: false});
-      toast.success('Blog Saved Succesfuly!');
-      Router.pushRoute(`/blogs/${createdBlog._id}/edit`);
-    }).catch(err => {
-      this.setState({isSaving: false});
-        const message = err.message ||'Server Error';
-        toast.error('Unexpected Error');
-        console.error(message);
-      })
+  seperateBlogs(blogs) {
+    const published = [];
+    const drafts = [];
+    blogs.forEach((blog) => {
+      blog.status === 'draft' ? drafts.push(blog) : published.push(blog);
+    });
+
+    return {published, drafts};
+  }
+
+  renderBlogs(blogs){
+    return (
+      <ul className = "user-blogs-list" >)>
+        {
+          blogs.map((blog, index) => (
+            <li key={index}>
+                <Link route={`/blogs/${blog._id}/edit`}>
+                  <a> {blog.title}</a>
+                </Link>
+            </li>
+          ))
+        }
+      </ul>
+    )
   }
 
   render() {
-    const {isSaving} = this.state;
+    const {blogs} = this.props;
+    const {published, drafts} = this.seperateBlogs(blogs);
     return (
       <div>
         <Header isAuthenticated={this.props.auth.isAuthenticated}/>
-          <div className="container">
-          <SlateEditor isLoading={isSaving} save={this.saveBlog}/>
+          <div>
+            <h2> Published Blogs</h2>
+            {this.renderBlogs(published)}
+          </div>
+          <div>
+            <h2> Draft Blogs</h2>
+            {this.renderBlogs(drafts)}
+
           </div>
           <Footer/>
           <div>
@@ -70,4 +82,4 @@ class BlogEditor extends Component {
     )
   }
 }
-export default withAuth('siteOwner')(BlogEditor);
+export default withAuth('siteOwner')(UserBlogs);
