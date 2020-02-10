@@ -16,7 +16,7 @@ class About extends Component {
   }
   render() {
     const {blog} = this.props;
-    console.log(blog);
+
     return (
       <div>
         <Header isAuthenticated={this.props.auth.isAuthenticated}/>

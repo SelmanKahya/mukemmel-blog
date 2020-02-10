@@ -2,14 +2,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 // Import the Slate editor factory.
 import { createEditor } from 'slate'
+//import { Value } from 'slate';
+//import { initialValue } from './initial-value';
 
 
 // Import the Slate components and React plugin.
 import { Slate, Editable, withReact } from 'slate-react'
 import ControlMenu from './ControlMenu';
-//import Html from 'slate-html-serializer';
 //import {rules } from './rules'
-//const html = new Html({rules});
 
 import escapeHtml from 'escape-html'
 import { Node, Text } from 'slate'
@@ -17,6 +17,7 @@ import { jsx } from 'slate-hyperscript';
 import { FaBlog } from "react-icons/fa";
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 //import parse from 'html-react-parser';
+
 
 const CodeElement = props => {
   return (
@@ -44,10 +45,7 @@ const onKeyDown = (event, change, next) => {
   const {isLoading} = props;
   if(!isLoading && event.which === 83 && (event.ctrlKey || event.metaKey)) {
     event.preventDefault();
-    console.log("ya ya ye");
     save();
-    console.log("coco jombo");
-
     return;
   }
   next();
@@ -81,7 +79,6 @@ const SlateEditor = (props) => {
     } else if (el.nodeType !== 1) {
       return null
     }
-
     const children = Array.from(el.childNodes).map(deserialize)
 
     switch (el.nodeName) {
@@ -148,14 +145,10 @@ const SlateEditor = (props) => {
     return <Leaf {...props} />
   }, [])
   const { isLoading} = props;
-  const valueNew = props.initialValue ? deserialize(props.initialValue) : value;
 
-
-  const html = "<p>A line of text in a paragraph.</p>,<p>Merhaba google</p>"
-
-
+  const valuevalue = props.initialValue ? deserialize((new DOMParser().parseFromString(props.initialValue, 'text/html')).body) : value;
   return (
-    <Slate editor={editor} value={value} onChange={value => setValue(value)} onKeyDown={onKeyDown}>
+    <Slate editor={editor} value={valuevalue} onChange={value => setValue(value)} onKeyDown={onKeyDown}>
       <ControlMenu isLoading={isLoading} save={save}></ControlMenu>
       <Editable
         renderElement={renderElement}

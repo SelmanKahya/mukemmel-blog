@@ -1,13 +1,9 @@
-import fetch from "isomorphic-unfetch";
 import Head from "next/head";
-//import Link from "next/link";
-import ReactMarkdown from "react-markdown";
 import Footer from '../components/Footer'
 import BlogPost from "../components/BlogPost";
 import SideBar from "../components/SideBar";
 import Header from "../components/Header"
 import { getBlogs} from '../actions';
-import {Link} from '../routes';
 import React, { Component } from 'react';
 class Index extends Component {
   constructor(){
@@ -29,7 +25,7 @@ class Index extends Component {
       <div>
       <Header user={this.props.auth.user} isAuthenticated={this.props.auth.isAuthenticated}/>
       <div className="container">
-        <BlogPost marginTop= "0px" width = "66%" className="blogPostmain" blogs={this.props.blogs}/>
+        <BlogPost marginTop= "60px" width = "66%" className="blogPostmain" blogs={this.props.blogs}/>
         <SideBar marginTop= "60px" width = "29%" className = "sidebarmain"/>
       </div>
       <Footer />

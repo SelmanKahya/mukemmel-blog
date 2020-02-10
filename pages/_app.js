@@ -1,4 +1,3 @@
-//import '../styles.css';
 import React from 'react'
 import App from 'next/app'
 import auth0 from '../services/auth0';

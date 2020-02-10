@@ -24,7 +24,7 @@ class BlogPost extends Component {
       <div className="blogPost" style={{width: this.props.width, marginTop: this.props.marginTop}}>
       {blogs.map((post, index) => {
       return (
-        <Card date={post.createdAt} route={`/blogs/${post.slug}`} key={index} marginTop="60px" title={post.title} body={post.story.substring(0, 180)} minute = {this.countWords(post.story)}/>
+        <Card date={post.createdAt} route={`/blogs/${post.slug}`} key={index} marginTop="0px" title={post.title} body={post.story.substring(0, 180)} minute = {this.countWords(post.story)}/>
         )
       })}
       <style jsx>{`

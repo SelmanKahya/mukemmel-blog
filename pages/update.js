@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from "../components/Header"
-import Link from "next/link"
 import Footer from '../components/Footer';
 import withAuth from '../components/hoc/withAuth';
 import Head from "next/head";
