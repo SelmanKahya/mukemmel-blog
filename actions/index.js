@@ -5,7 +5,7 @@ import { getCookieFromReq } from '../helpers/utils';
 
 const axiosInstance = axios.create({
     //baseURL: `${process.env.BASE_URL}/api/v1`,
-    baseURL: 'http://localhost:3000/api/v1',
+    baseURL: `${process.env.BASE_URL}/api/v1`,
     timeout: 3000
   });
 
@@ -30,7 +30,7 @@ const setAuthHeader = (req) => {
 }
 export const getSecretData = async (req) => {
 
-    const url = 'http://localhost:3000/api/v1/secret';
+    const url = `${process.env.BASE_URL}/api/v1/secret`;
 
     return await axios.get(url, setAuthHeader(req)).then(response =>  response.data);
 }

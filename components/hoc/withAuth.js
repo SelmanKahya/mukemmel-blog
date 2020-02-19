@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import Footer from '../Footer'
-const namespace = 'http://localhost:3000/';
+const namespace = process.env.NAMESPACE;
 export default role => Component =>
 
     class withAuth extends Component {

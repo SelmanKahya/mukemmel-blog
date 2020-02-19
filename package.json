@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node server/index.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@babel/core": "^7.7.7",
@@ -15,6 +16,7 @@
     "async-lock": "^1.2.2",
     "auth0-js": "^9.12.2",
     "axios": "^0.19.1",
+    "babel-plugin-transform-define": "^2.0.0",
     "bootstrap": "^4.4.1",
     "bootstrap-next": "^1.0.5",
     "escape-html": "^1.0.3",
